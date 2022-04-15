@@ -1,6 +1,6 @@
 // /models/date.js
 
-const mongoose = require('mongoose');
+const mongoose = require('../db/connection');
 
 const dateSchema = new mongoose.Schema({
   resortName: {
@@ -9,7 +9,7 @@ const dateSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    require: true,
+    required: true,
   },
   runName: {
     type: String,
@@ -24,6 +24,6 @@ const dateSchema = new mongoose.Schema({
   runNotes: String,
 });
 
-const Date = mongoose.model('Date', dateSchema);
+const Dates = mongoose.model('Date', dateSchema);
 
-module.exports = Date;
+module.exports = Dates;

@@ -1,0 +1,28 @@
+[
+  {
+    "resortName": "Winter Park",
+    "date": "2022-04-15",
+    "runName": "Mary Jane",
+    "runDifficulty": "blue",
+    "weatherConditions": "cloudy",
+    "windConditions": "windy",
+    "snowConditions": "icy",
+    "runTime": 13,
+    "runCrowded": true,
+    "runJumps": false,
+    "runNotes": "Crowded run, patches of ice in middle of slope"
+  },
+  {
+    "resortName": "Winter Park",
+    "date": "2022-02-12",
+    "runName": "Sleeper",
+    "runDifficulty": "black",
+    "weatherConditions": "sunny",
+    "windConditions": "no wind",
+    "snowConditions": "powder",
+    "runTime": 19,
+    "runCrowded": false,
+    "runJumps": true,
+    "runNotes": "Difficult run, moguls at bottom were hard. No lift lines!"
+  }
+]

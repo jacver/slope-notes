@@ -1,14 +1,23 @@
 // db/seed.js
 
-const Date = require('../models/date');
-const seedData = require('./dates.json');
+const Dates = require('../models/date');
+const seedDate = require('./dates.json');
 
-// [ ] fill db with hard coded resorts
-// [ ] put these resorts into a dropdown menu
+Dates.deleteMany({})
+  .then(() => {
+    return Dates.collection.insertMany(seedDate);
+  })
+  .then(() => {
+    process.exit();
+  });
 
-// [ ] fill db with seed dates
+const Resort = require('../models/resort');
+const seedResort = require('./resorts.json');
 
-// modify code below:
-// // Pokemon.deleteMany({}).then(() => {
-//   Pokemon.insertMany(seedData).then(console.log).catch(console.error);
-// });
+// Resort.deleteMany({})
+//   .then(() => {
+//     return Resort.collection.insertMany(seedResort);
+//   })
+//   .then(() => {
+//     process.exit();
+//   });

@@ -2,18 +2,15 @@
 
 // DEPENDENCIES
 const express = require('express');
-const router = express();
-// link date model
+const router = express.Router();
+const Date = require('../models/date');
 const ejs = require('ejs');
-
-router.use(express.json());
-router.use(express.urlencoded({ extended: true }));
 
 // START DATE ROUTE CONTROLLERS *
 
-router.get('/', (req, res) => {
-  res.send('Hello');
-});
+// router.get('/', (req, res) => {
+//   res.send('Hello');
+// });
 
 // END DATE ROUTE CONTROLLERS *
 
