@@ -3,12 +3,10 @@ const db = mongoose.connection;
 
 mongoose.Promise = Promise;
 
-// const mongoURI =
-//   process.env.NODE_ENV === 'production'
-//     ? process.env.DB_URL
-//     : 'mongodb+srv://jacver:atlas@cluster0.gqudg.mongodb.net/slopesnotes?retryWrites=true&w=majority';
 const mongoURI =
-  'mongodb+srv://jacver:atlas@cluster0.gqudg.mongodb.net/slopesnotes?retryWrites=true&w=majority';
+  process.env.NODE_ENV === 'production'
+    ? process.env.DB_URL
+    : 'mongodb+srv://jacver:atlas@cluster0.gqudg.mongodb.net/slopesnotes?retryWrites=true&w=majority';
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })

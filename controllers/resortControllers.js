@@ -8,10 +8,16 @@ const ejs = require('ejs');
 
 // START RESORT ROUTE CONTROLLERS *
 
+// render raw json
+// router.get('/', (req, res) => {
+//   Resort.find({}).then((resorts) => {
+//     res.json(resorts);
+//   });
+// });
+
+// test ejs template
 router.get('/', (req, res) => {
-  Resort.find({}).then((resorts) => {
-    res.json(resorts);
-  });
+  res.render('index');
 });
 
 // END RESORT ROUTE CONTROLLERS *

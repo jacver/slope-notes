@@ -8,9 +8,11 @@ const ejs = require('ejs');
 
 // START DATE ROUTE CONTROLLERS *
 
-// router.get('/', (req, res) => {
-//   res.send('Hello');
-// });
+router.get('/', (req, res) => {
+  Date.find({}).then((dates) => {
+    res.json(dates);
+  });
+});
 
 // END DATE ROUTE CONTROLLERS *
 

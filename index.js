@@ -9,9 +9,9 @@ const resortControllers = require('./controllers/resortControllers');
 
 const methodOverride = require('method-override');
 
-// app.set("view engine", "ejs")
-
+app.set('view engine', 'ejs');
 app.set(methodOverride('_method'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
