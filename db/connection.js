@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const db = mongoose.connection;
 
 mongoose.Promise = Promise;
 
 const mongoURI =
-  process.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === "production"
     ? process.env.DB_URL
-    : 'mongodb+srv://jacver:atlas@cluster0.gqudg.mongodb.net/slopesnotes?retryWrites=true&w=majority';
+    : process.env.DEV_DB_URL;
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
@@ -18,8 +18,8 @@ mongoose
   });
 
 // Connection Error/Success
-db.on('error', (err) => console.log(err.message + ' is MongoDB not running?'));
-db.on('connected', () => console.log('MongoDB connected on: ', mongoURI));
-db.on('disconnected', () => console.log('MongoDB disconnected'));
+db.on("error", (err) => console.log(err.message + " is MongoDB not running?"));
+db.on("connected", () => console.log("MongoDB connected on: ", mongoURI));
+db.on("disconnected", () => console.log("MongoDB disconnected"));
 
 module.exports = mongoose;
