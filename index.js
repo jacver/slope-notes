@@ -24,8 +24,8 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/", resortControllers);
 app.use("/dates", dateControllers);
-app.use("/resorts", resortControllers);
 
 app.listen(PORT, () => {
   console.log("App listening on PORT ", PORT);
