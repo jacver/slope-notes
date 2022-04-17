@@ -3,14 +3,14 @@
 const Dates = require("../models/date");
 const seedDate = require("./dates.json");
 
-Dates.deleteMany({})
-  .then(() => {
-    return Dates.collection.insertMany(seedDate);
-  })
-  .then(() => {
-    console.log("dates seeded");
-    process.exit();
-  });
+// Dates.deleteMany({})
+//   .then(() => {
+//     return Dates.collection.insertMany(seedDate);
+//   })
+//   .then(() => {
+//     console.log("dates seeded");
+//     process.exit();
+//   });
 
 const Resort = require("../models/resort");
 const seedResort = require("./resorts.json");

@@ -4,21 +4,20 @@
 const express = require("express");
 const resortRouter = express.Router();
 const Resort = require("../models/resort");
-const ejs = require("ejs");
 
 // START RESORT ROUTE CONTROLLERS *
 
 // get all resort JSON
-resortRouter.get("/", (req, res) => {
-  Resort.find({}).then((resorts) => {
-    res.json(resorts);
-  });
-});
+// resortRouter.get("/", (req, res) => {
+//   Resort.find({}).then((resorts) => {
+//     res.json(resorts);
+//   });
+// });
 
-// test ejs template
-resortRouter.get("/ejs", (req, res) => {
+// get all resorts
+resortRouter.get("/", (req, res) => {
   Resort.find({}).then((resortData) =>
-    res.render("./pages/show", { resorts: resortData })
+    res.render("./index", { resorts: resortData })
   );
 });
 
@@ -56,9 +55,7 @@ resortRouter.put("/:id", (req, res) => {
 // delete existing resort by ID
 resortRouter.delete("/:id", (req, res) => {
   const id = { _id: req.params.id };
-  Resort.findByIdAndDelete(id, (err, deletedResort) => {
-    err ? console.log(err) : console.log("DELETED: ", deletedResort);
-  });
+  Resort.findByIdAndDelete(id).then(res.redirect("/ejs"));
 });
 
 // END RESORT ROUTE CONTROLLERS *

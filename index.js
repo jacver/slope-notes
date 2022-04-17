@@ -1,32 +1,29 @@
 // index.js
 
-// import dotenv to hide mongoURI from github
-require("dotenv").config();
+require("dotenv").config(); // import dotenv to hide mongoURI from github
 
-// import express
-const express = require("express");
-// establish app object
-const app = express();
-// heroku-friendly port
-const PORT = process.env.PORT || 3000;
+const express = require("express"); // import express
+
+const app = express(); // establish app object
+
+const PORT = process.env.PORT || 3000; // heroku-friendly port
 
 // import controllers
 // ** IMPORTANT ** - dateControllers must be above resortControllers or it will get hung up on the resort get by ID route
 const dateControllers = require("./controllers/dateControllers");
 const resortControllers = require("./controllers/resortControllers");
 
-// import method override for routing purposes
-const methodOverride = require("method-override");
-// utilize method override
-app.set(methodOverride("_method"));
-// view engine EJS for templating
-app.set("view engine", "ejs");
+const methodOverride = require("method-override"); // import method override for routing purposes
 
+app.use(methodOverride("_method")); // utilize method override
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/dates", dateControllers);
 app.use("/", resortControllers);
+
+app.set("view engine", "ejs"); // view engine EJS for templating
 
 app.listen(PORT, () => {
   console.log("App listening on PORT ", PORT);

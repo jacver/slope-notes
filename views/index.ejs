@@ -1,17 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <%- include('./partials/head'); %>
-  </head>
-  <body class="container">
-    <header><%- include('./partials/header'); %></header>
 
-    <main>
-      <div class="jumbotron">
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
-      </div>
-    </main>
+
+<head>
+    <%- include('./partials/head'); %>
+</head>
+
+<body class="container">
+<main>
+<div class="container">
+  <% resorts.forEach(resort => { %>
+  <div>
+    <h2><%= resort.resortName %></h2>
+  </div>
+  <div>
+      <p><%= resort.resortState %>, <%= resort.resortCountry %></p>
+  </div>
+  <div>
+    <div>
+        <form action=""></form>
+    </div>
+    <div>
+      <a href="/<%=resort.id%>" >View</a>
+
+      <form
+        class="removeFormMargin"
+        action="/<%=resort.id%>"
+        method="POST"
+      >
+        <input class="btn-primary" type="submit" value="Delete" />
+      </form>
+    </div>
+  </div>
+
+
+  <% }) %>
+
+
+
+
+
+
+  </main>
 
     <footer><%- include('./partials/footer'); %></footer>
   </body>

@@ -1,17 +1,32 @@
 [
   {
-    "resortName": "Winter Park"
+    "resortName": "Winter Park",
+    "resortTown": "Winter Park",
+    "resortState": "Colorado",
+    "resortCountry": "USA"
   },
   {
-    "resortName": "Copper Mountain"
+    "resortName": "Copper Mountain",
+    "resortTown": "Frisco",
+    "resortState": "Colorado",
+    "resortCountry": "USA"
   },
   {
-    "resortName": "Arapahoe Basin"
+    "resortName": "Arapahoe Basin",
+    "resortTown": "Dillon",
+    "resortState": "Colorado",
+    "resortCountry": "USA"
   },
   {
-    "resortName": "Breckenridge"
+    "resortName": "Breckenridge",
+    "resortTown": "Breckenridge",
+    "resortState": "Colorado",
+    "resortCountry": "USA"
   },
   {
-    "resortName": "Vail"
+    "resortName": "Vail",
+    "resortTown": "Vail",
+    "resortState": "Colorado",
+    "resortCountry": "USA"
   }
 ]

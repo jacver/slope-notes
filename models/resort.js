@@ -4,6 +4,9 @@ const mongoose = require("../db/connection");
 
 const resortSchema = new mongoose.Schema({
   resortName: String,
+  resortTown: String,
+  resortState: String,
+  resortCountry: String,
 });
 
 const Resort = mongoose.model("Resort", resortSchema);

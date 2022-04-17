@@ -1,4 +1,4 @@
-// db/connection/js
+// db/connection.js
 
 // import hidden mongoURI
 require("dotenv").config();
