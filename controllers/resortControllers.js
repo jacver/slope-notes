@@ -23,6 +23,7 @@ resortRouter.get("/:id", (req, res) => {
   });
 });
 
+// create new resort
 resortRouter.post("/", (req, res) => {
   Resort.create(req.body)
     .then((newResort) => {
@@ -31,6 +32,7 @@ resortRouter.post("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+// update existing resort by ID
 resortRouter.put("/:id", (req, res) => {
   const id = { _id: req.params.id };
   Resort.findByIdAndUpdate(id, req.body)
@@ -44,6 +46,7 @@ resortRouter.put("/:id", (req, res) => {
     });
 });
 
+// delete existing resort by ID
 resortRouter.delete("/:id", (req, res) => {
   const id = { _id: req.params.id };
   Resort.findByIdAndDelete(id, (err, deletedResort) => {
