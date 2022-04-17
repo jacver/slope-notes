@@ -15,6 +15,13 @@ resortRouter.get("/", (req, res) => {
   });
 });
 
+// test ejs template
+resortRouter.get("/ejs", (req, res) => {
+  Resort.find({}).then((resortData) =>
+    res.render("./pages/show", { resorts: resortData })
+  );
+});
+
 // show specific resort JSON
 resortRouter.get("/:id", (req, res) => {
   const id = { _id: req.params.id };
@@ -50,14 +57,9 @@ resortRouter.put("/:id", (req, res) => {
 resortRouter.delete("/:id", (req, res) => {
   const id = { _id: req.params.id };
   Resort.findByIdAndDelete(id, (err, deletedResort) => {
-    err ? console.log(err) : console.log("DELETED: ", deletedResort.name);
+    err ? console.log(err) : console.log("DELETED: ", deletedResort);
   });
 });
-
-// test ejs template
-// resortRouter.get('/', (req, res) => {
-//   res.render('index');
-// });
 
 // END RESORT ROUTE CONTROLLERS *
 

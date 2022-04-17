@@ -1,6 +1,6 @@
 // /models/date.js
 
-const mongoose = require('../db/connection');
+const mongoose = require("../db/connection");
 
 const dateSchema = new mongoose.Schema({
   resortName: {
@@ -16,7 +16,7 @@ const dateSchema = new mongoose.Schema({
     required: true,
   },
   weatherConditions: String,
-  WindConditions: String,
+  windConditions: String,
   snowConditions: String,
   runTime: Number,
   runCrowded: Boolean,
@@ -24,6 +24,6 @@ const dateSchema = new mongoose.Schema({
   runNotes: String,
 });
 
-const Dates = mongoose.model('Date', dateSchema);
+const Dates = mongoose.model("Date", dateSchema);
 
 module.exports = Dates;

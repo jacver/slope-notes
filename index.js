@@ -11,6 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // import controllers
+// ** IMPORTANT ** - dateControllers must be above resortControllers or it will get hung up on the resort get by ID route
 const dateControllers = require("./controllers/dateControllers");
 const resortControllers = require("./controllers/resortControllers");
 
@@ -24,8 +25,8 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", resortControllers);
 app.use("/dates", dateControllers);
+app.use("/", resortControllers);
 
 app.listen(PORT, () => {
   console.log("App listening on PORT ", PORT);
