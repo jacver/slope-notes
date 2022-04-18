@@ -6,7 +6,13 @@
 
 <body class="container">
 <main>
-<div class="card">
+  <div class="card">
+  <div class=" list-group  page-title-container">
+  <h1 class="page-title">
+    My Resorts
+  </h1>
+  <i class="fa-solid fa-plus btn-add"></i>
+</div>
   <% resorts.forEach(resort => { %>
   <div class="card-body">
     <div class="card-titles-container">
@@ -14,14 +20,18 @@
       <h3 class="card-subtitle subtitle mb-2 text-muted"><%= resort.resortState %>, <%= resort.resortCountry %></h3>
     </div>
     <div class="card-buttons-container">
-      <a href="/<%=resort.id%>" >View</a>
+      <a href="/<%=resort.id%>" >
+        <button class="btn btn-primary">
+          View
+        </button>
+      </a>
 
       <form
       method="POST"
       action="/<%=resort.id%>?_method=DELETE"
         class="removeFormMargin"
       >
-        <input class="btn-secondary" type="submit"        value="Delete" />
+        <input class="btn btn-secondary" type="submit"        value="Delete" />
       </form>
     </div>
   </div>
