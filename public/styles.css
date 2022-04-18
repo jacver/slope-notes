@@ -1,5 +1,6 @@
 body {
   padding-top: 50px;
+  height: 100%;
 }
 
 .page-title-container {
@@ -7,16 +8,25 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1%;
+  /* padding: 1%; */
 }
 
-.page-title {
-  /* padding: 10px; */
+.dropdown {
+  align-self: normal;
+  padding: 5px;
 }
 
 .btn-add {
-  font-size: 300%;
-  padding-right: 5.75%;
+  position: relative;
+  left: 0%;
+  top: 45%;
+  border-radius: 20px;
+  border: none;
+  padding: 5px;
+}
+
+.dropdown-option0 {
+  display: none; /* hide "add resort" from drop down*/
 }
 
 .card-body {

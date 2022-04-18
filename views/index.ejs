@@ -11,7 +11,18 @@
   <h1 class="page-title">
     My Resorts
   </h1>
-  <i class="fa-solid fa-plus btn-add"></i>
+    <form class="dropdown" action="" method="">
+      <select  class="btn-primary btn-add" title="Add Resort"> 
+        <option class="dropdown-option0 .lead"value="0"> 
+          Add Resort:
+        </option>
+        <% resorts.forEach((resort, index) => { %>
+          <option class=".lead" value="<%= resort.index %>">
+            <%= resort.resortName %>
+          </option>
+          <% }) %>
+      </select>
+    </form>
 </div>
   <% resorts.forEach(resort => { %>
   <div class="card-body">
@@ -21,7 +32,7 @@
     </div>
     <div class="card-buttons-container">
       <a href="/<%=resort.id%>" >
-        <button class="btn btn-primary">
+        <button title="View Resort" class="btn btn-primary">
           View
         </button>
       </a>
@@ -31,7 +42,8 @@
       action="/<%=resort.id%>?_method=DELETE"
         class="removeFormMargin"
       >
-        <input class="btn btn-secondary" type="submit"        value="Delete" />
+        <input class="btn btn-secondary" type="submit"  
+        title="Delete Resort"      value="Delete" />
       </form>
     </div>
   </div>
