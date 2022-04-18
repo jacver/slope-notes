@@ -1,28 +1,34 @@
 // controllers/resortControllers.js
 
 // DEPENDENCIES
-const express = require("express");
+const express = require('express');
 const resortRouter = express.Router();
-const Resort = require("../models/resort");
+const Resort = require('../models/resort');
 
 // START RESORT ROUTE CONTROLLERS *
 
 // get all resort JSON
-// resortRouter.get("/", (req, res) => {
+// resortRouter.get('/', (req, res) => {
 //   Resort.find({}).then((resorts) => {
 //     res.json(resorts);
 //   });
 // });
 
 // get all resorts
-resortRouter.get("/", (req, res) => {
+resortRouter.get('/', (req, res) => {
   Resort.find({}).then((resortData) =>
-    res.render("./index", { resorts: resortData })
+    res.render('./index', { resorts: resortData })
   );
 });
 
+// delete existing resort by ID
+resortRouter.delete('/:id', (req, res) => {
+  const id = { _id: req.params.id };
+  Resort.findByIdAndDelete(id).then(res.redirect('/'));
+});
+
 // show specific resort JSON
-resortRouter.get("/:id", (req, res) => {
+resortRouter.get('/:id', (req, res) => {
   const id = { _id: req.params.id };
   Resort.findById(id).then((resort) => {
     res.json(resort);
@@ -30,7 +36,7 @@ resortRouter.get("/:id", (req, res) => {
 });
 
 // create new resort
-resortRouter.post("/", (req, res) => {
+resortRouter.post('/', (req, res) => {
   Resort.create(req.body)
     .then((newResort) => {
       res.json(newResort);
@@ -39,7 +45,7 @@ resortRouter.post("/", (req, res) => {
 });
 
 // update existing resort by ID
-resortRouter.put("/:id", (req, res) => {
+resortRouter.put('/:id', (req, res) => {
   const id = { _id: req.params.id };
   Resort.findByIdAndUpdate(id, req.body)
     .then((updatedResort) => {
@@ -50,12 +56,6 @@ resortRouter.put("/:id", (req, res) => {
       console.log(err);
       res.json(err);
     });
-});
-
-// delete existing resort by ID
-resortRouter.delete("/:id", (req, res) => {
-  const id = { _id: req.params.id };
-  Resort.findByIdAndDelete(id).then(res.redirect("/ejs"));
 });
 
 // END RESORT ROUTE CONTROLLERS *

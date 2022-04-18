@@ -1,3 +1,25 @@
 body {
   padding-top: 50px;
 }
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-titles-container {
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.card-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: large;
+}
