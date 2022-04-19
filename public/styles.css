@@ -26,6 +26,11 @@ a.btn-anchor {
   padding: 1% 5%;
 }
 
+.card-body:hover {
+  background-color: skyblue;
+  border-radius: 5px;
+}
+
 .card-titles-container {
   /* display: flex; */
   flex-direction: column;
@@ -70,8 +75,4 @@ a.btn-anchor {
 .footer-link:hover {
   color: pink;
   text-decoration: none;
-}
-
-.btn-newResort {
-  margin: 3px;
 }

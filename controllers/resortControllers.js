@@ -36,7 +36,7 @@ resortRouter.get('/', (req, res) => {
 
 // get HTML form to create resort
 resortRouter.get('/new', (req, res) => {
-  res.render('./pages/newResort').catch((err) => res.send(err));
+  res.render('./pages/newResort');
 });
 
 // test route -- view specific resort
@@ -57,23 +57,23 @@ resortRouter.get('/:id', async (req, res) => {
 
 // post newly created resort
 resortRouter.post('/', (req, res) => {
-  console.log('-----In post -----');
   Resort.create(req.body).then(res.redirect('/resorts'));
 });
 
-// update existing resort by ID
-resortRouter.put('/:id', (req, res) => {
-  const id = { _id: req.params.id };
-  Resort.findByIdAndUpdate(id, req.body)
-    .then((updatedResort) => {
-      res.json(updatedResort);
-      // just sending json here so no need to mess with route redirection praise god
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json(err);
-    });
-});
+// NOTE: For now not planning on allowing edits on resort obj
+// // update existing resort by ID
+// resortRouter.put('/:id', (req, res) => {
+//   const id = { _id: req.params.id };
+//   Resort.findByIdAndUpdate(id, req.body)
+//     .then((updatedResort) => {
+//       res.json(updatedResort);
+//       // just sending json here so no need to mess with route redirection praise god
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.json(err);
+//     });
+// });
 
 // delete existing resort by ID
 resortRouter.delete('/:id', (req, res) => {
