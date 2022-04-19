@@ -4,5 +4,21 @@
 <body>
   <header><%- include('../partials/header'); %></header>
 
+  <h1>Add New Resort</h1>
+
+  <form action="/resorts" method="POST">
+    <div class="form-group">
+      <label for="resortName">Resort Name:</label>
+      <input
+        type="text"
+        id="resortName"
+        name="resortName"
+        class="form-control"
+      />
+    </div>
+    <input type="submit" lcass="btn btn-primary" />
+    <a href="/resorts" class="btn btn-secondary">Cancel</a>
+  </form>
+
   <footer><%- include('../partials/footer'); %></footer>
 </body>

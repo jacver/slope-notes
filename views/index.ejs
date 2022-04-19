@@ -12,7 +12,7 @@
    <h1 class="page-title">
     My Resorts
   </h1>
-  <a class="btn-anchor btn-primary" href="">
+  <a class="btn-anchor btn-primary" href="/resorts/new">
     <i class="fa-solid fa-plus"></i>
     Add Resort
   </a>
@@ -33,7 +33,7 @@
 
       <form
       method="POST"
-      action="/<%=resort.id%>?_method=DELETE"
+      action="resorts/<%=resort.id%>?_method=DELETE"
         class="removeFormMargin"
       >
         <input class="btn btn-secondary" type="submit"  
