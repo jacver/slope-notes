@@ -11,22 +11,12 @@ body {
   /* padding: 1%; */
 }
 
-.dropdown {
-  align-self: normal;
-  padding: 5px;
-}
-
-.btn-add {
-  position: relative;
-  left: 0%;
-  top: 45%;
-  border-radius: 20px;
-  border: none;
-  padding: 5px;
-}
-
-.dropdown-option0 {
-  display: none; /* hide "add resort" from drop down*/
+a.btn-anchor {
+  /* style <a> to look like a btn */
+  border-radius: 0.25rem;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  color: #fff;
 }
 
 .card-body {

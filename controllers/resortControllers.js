@@ -1,42 +1,45 @@
 // controllers/resortControllers.js
 
 // DEPENDENCIES
-const express = require('express');
+const express = require("express");
 const resortRouter = express.Router();
-const Resort = require('../models/resort');
+const Resort = require("../models/resort");
+const Dates = require("../models/date");
+
+// FUNCTIONS USED IN ROUTES
+function getResort(id) {
+  const resortID = id;
+  Resort.findById(resortID).then((resort) => {
+    // console.log(resort); // <---- this logs correct resort object
+    return resort;
+  });
+}
 
 // START RESORT ROUTE CONTROLLERS *
 
-// get all resort JSON
-// resortRouter.get('/', (req, res) => {
-//   Resort.find({}).then((resorts) => {
-//     res.json(resorts);
-//   });
-// });
-
 // get all resorts
-resortRouter.get('/', (req, res) => {
+resortRouter.get("/", (req, res) => {
   Resort.find({}).then((resortData) =>
-    res.render('./index', { resorts: resortData })
+    res.render("index", { resorts: resortData })
   );
 });
 
-// delete existing resort by ID
-resortRouter.delete('/:id', (req, res) => {
-  const id = { _id: req.params.id };
-  Resort.findByIdAndDelete(id).then(res.redirect('/'));
-});
+// view specific resort
+// resortRouter.get("/:id", (req, res) => {
+//   const id = { _id: req.params.id };
+//   Resort.findById(id).then((resort) => {
+//     res.render("./pages/showResort", { resort: resort });
+//   });
+// });
 
-// show specific resort JSON
-resortRouter.get('/:id', (req, res) => {
-  const id = { _id: req.params.id };
-  Resort.findById(id).then((resort) => {
-    res.json(resort);
-  });
+// test route -- view specific resort
+resortRouter.get("/:id", (req, res) => {
+  const selectedResort = getResort(req.params.id); // <-- need to be able to reference object here
+  console.log(selectedResort); // <-- undefined
 });
 
 // create new resort
-resortRouter.post('/', (req, res) => {
+resortRouter.post("/", (req, res) => {
   Resort.create(req.body)
     .then((newResort) => {
       res.json(newResort);
@@ -45,7 +48,7 @@ resortRouter.post('/', (req, res) => {
 });
 
 // update existing resort by ID
-resortRouter.put('/:id', (req, res) => {
+resortRouter.put("/:id", (req, res) => {
   const id = { _id: req.params.id };
   Resort.findByIdAndUpdate(id, req.body)
     .then((updatedResort) => {
@@ -56,6 +59,12 @@ resortRouter.put('/:id', (req, res) => {
       console.log(err);
       res.json(err);
     });
+});
+
+// delete existing resort by ID
+resortRouter.delete("/:id", (req, res) => {
+  const id = { _id: req.params.id };
+  Resort.findByIdAndDelete(id).then(res.redirect("/"));
 });
 
 // END RESORT ROUTE CONTROLLERS *
