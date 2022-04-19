@@ -71,3 +71,7 @@ a.btn-anchor {
   color: pink;
   text-decoration: none;
 }
+
+.btn-newResort {
+  margin: 3px;
+}

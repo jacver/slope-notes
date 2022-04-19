@@ -58,7 +58,7 @@ resortRouter.get('/:id', async (req, res) => {
 // post newly created resort
 resortRouter.post('/', (req, res) => {
   console.log('-----In post -----');
-  Resort.create(req.body).then(res.redirect('/resorts')).catch(console.error);
+  Resort.create(req.body).then(res.redirect('/resorts'));
 });
 
 // update existing resort by ID

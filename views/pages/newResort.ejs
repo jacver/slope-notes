@@ -1,10 +1,8 @@
 <head>
   <%- include('../partials/head'); %>
 </head>
-<body>
+<body class="container">
   <header><%- include('../partials/header'); %></header>
-
-  <h1>Add New Resort</h1>
 
   <form action="/resorts" method="POST">
     <div class="form-group">
@@ -15,9 +13,30 @@
         name="resortName"
         class="form-control"
       />
+      <label for="resortCity">City:</label>
+      <input
+        type="text"
+        id="resortCity"
+        name="resortCity"
+        class="form-control"
+      />
+      <label for="resortState">State:</label>
+      <input
+        type="text"
+        id="resortState"
+        name="resortState"
+        class="form-control"
+      />
+      <label for="resortCountry">Country:</label>
+      <input
+        type="text"
+        id="resortCountry"
+        name="resortCountry"
+        class="form-control"
+      />
     </div>
-    <input type="submit" lcass="btn btn-primary" />
-    <a href="/resorts" class="btn btn-secondary">Cancel</a>
+    <input type="submit" class="btn btn-primary btn-newResort" />
+    <a href="/resorts" class="btn btn-secondary btn-newResort">Cancel</a>
   </form>
 
   <footer><%- include('../partials/footer'); %></footer>
