@@ -44,6 +44,10 @@ a.btn-anchor {
   color: #fff;
 }
 
+.card-columns {
+  margin-top: 6px;
+}
+
 .card-body {
   display: flex;
   flex-direction: row;

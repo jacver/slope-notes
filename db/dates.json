@@ -2,6 +2,7 @@
   {
     "resortName": "Winter Park",
     "date": { "$date": "2022-04-15" },
+    "strDate": "2022-04-15",
     "runName": "Mary Jane",
     "runDifficulty": "blue",
     "weatherConditions": "cloudy",
@@ -15,6 +16,7 @@
   {
     "resortName": "Winter Park",
     "date": { "$date": "2022-04-12" },
+    "strDate": "2022-04-12",
     "runName": "Sleeper",
     "runDifficulty": "black",
     "weatherConditions": "sunny",

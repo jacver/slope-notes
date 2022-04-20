@@ -1,31 +1,31 @@
-
-
 <head>
     <%- include('./partials/head'); %>
 </head>
-
+  
+<header>
+<%- include('./partials/header'); %>
+</header>
 <body class="container">
 <main>
   <div class="card">
-
-  <div class=" list-group  page-title-container list-group-item active">
-   <h1 class="page-title">
-    My Resorts
-  </h1>
-  <a class="btn-anchor btn-outline-primary" href="/resorts/new">
-    <i class="fa-solid fa-plus"></i>
-    Add Resort
-  </a>
-</div>
+    <div class=" list-group  page-title-container list-group-item active">
+      <h2 class="page-title">
+        My Resorts
+      </h2>
+      <a class="btn-anchor btn-secondary" href="/resorts/new">
+        <i class="fa-solid fa-plus"></i>
+        Add Resort
+      </a>
+    </div>
 
   <% resorts.forEach(resort => { %>
   <div class="card-body">
     <div class="card-titles-container">
-     <h2 class="card-title"><%= resort.resortName %></h2>
-      <h3 class="card-subtitle subtitle mb-2 text-muted"><%= resort.resortState %>, <%= resort.resortCountry %></h3>
+     <h3 class="card-title"><%= resort.resortName %></h3>
+      <h4 class="card-subtitle subtitle mb-2 text-muted"><%= resort.resortState %>, <%= resort.resortCountry %></h4>
     </div>
     <div class="card-buttons-container">
-      <a href="resorts/<%=resort.id%>" >
+      <a href="resorts/<%=resort.resortName%>" >
         <button title="View Resort" class="btn btn-primary">
           View
         </button>

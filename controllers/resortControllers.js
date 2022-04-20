@@ -1,63 +1,42 @@
 // controllers/resortControllers.js
 
 // DEPENDENCIES
-const express = require('express');
+const express = require("express");
 const resortRouter = express.Router();
-const Resort = require('../models/resort');
-const Dates = require('../models/date');
+const Resort = require("../models/resort");
+const Dates = require("../models/date");
 
 // FUNCTIONS USED IN ROUTES
-async function getResort(id) {
-  try {
-    const resortID = id;
-    const selectedResort = await Resort.findById(resortID);
-    return selectedResort;
-  } catch (err) {
-    console.log(err);
-  }
-}
 
 // START RESORT ROUTE CONTROLLERS *
 
 // get all resorts
-resortRouter.get('/', (req, res) => {
+resortRouter.get("/", (req, res) => {
   Resort.find({}).then((resortData) =>
-    res.render('index', { resorts: resortData })
+    res.render("index", { resorts: resortData })
   );
 });
 
-// view specific resort
-// resortRouter.get("/:id", (req, res) => {
-//   const id = { _id: req.params.id };
-//   Resort.findById(id).then((resort) => {
-//     res.render("./pages/showResort", { resort: resort });
-//   });
-// });
-
 // get HTML form to create resort
-resortRouter.get('/new', (req, res) => {
-  res.render('./pages/newResort');
+resortRouter.get("/new", (req, res) => {
+  res.render("./pages/newResort");
 });
 
-// test route -- view specific resort
-resortRouter.get('/:id', async (req, res) => {
-  try {
-    const selectedResort = await Resort.findById({ _id: req.params.id });
-    // console.log(selectedResort);
-    const getDates = await Dates.find({
-      resortName: { $eq: selectedResort.resortName },
+// view specific resort
+resortRouter.get("/:resortName", (req, res) => {
+  const selectedResort = req.params.resortName; // get name
+  res.locals.query = selectedResort; // allows use of selectedResort in template. Reference as "query"
+
+  Dates.find({ resortName: selectedResort }) // locate runs w/ Dates.resortName that matches req param
+    .then((dateData) => {
+      console.log(dateData);
+      res.render("./pages/showResort", { dates: dateData });
     });
-    // console.log(getDates);
-  } catch (err) {
-    console.log(err);
-  }
-  // check JSONStringify:
-  // https://stackoverflow.com/questions/37287352/can-i-render-multiple-sources-in-ejs
 });
 
 // post newly created resort
-resortRouter.post('/', (req, res) => {
-  Resort.create(req.body).then(res.redirect('/resorts'));
+resortRouter.post("/", (req, res) => {
+  Resort.create(req.body).then(res.redirect("/resorts"));
 });
 
 // NOTE: For now not planning on allowing edits on resort obj
@@ -76,9 +55,9 @@ resortRouter.post('/', (req, res) => {
 // });
 
 // delete existing resort by ID
-resortRouter.delete('/:id', (req, res) => {
+resortRouter.delete("/:id", (req, res) => {
   const id = { _id: req.params.id };
-  Resort.findByIdAndDelete(id).then(res.redirect('/resorts'));
+  Resort.findByIdAndDelete(id).then(res.redirect("/resorts"));
 });
 
 // END RESORT ROUTE CONTROLLERS *

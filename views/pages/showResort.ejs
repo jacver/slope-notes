@@ -1,9 +1,44 @@
 <head>
   <%- include('../partials/head'); %>
 </head>
-<body>
+<body class="container">
   <header><%- include('../partials/header'); %></header>
-  <h1><%= resort.resortName %></h1>
+
+  <div class="list-group page-title-container list-group-item active">
+    <h1 class="page-title"><%= query %></h1>
+    <a class="btn-anchor btn-outline-primary" href="/resorts/new">
+      <i class="fa-solid fa-plus"></i>
+      Add Date
+    </a>
+  </div>
+
+  <div class="card-columns">
+    <% dates.forEach(date => { %>
+    <div class="card bg-info">
+      <div class="card-header">DATE</div>
+      <div class="card-body text-center">
+        <div class="card-buttons-container">
+          <a href="resorts/ROUTE">
+            <button title="ViewDate" class="btn btn-primary">View</button>
+          </a>
+
+          <form
+            method="POST"
+            action="resorts/ROUTEHERE?_method=DELETE"
+            class="removeFormMargin"
+          >
+            <input
+              class="btn btn-secondary"
+              type="submit"
+              title="Delete"
+              value="Delete"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
 
   <footer><%- include('../partials/footer'); %></footer>
 </body>
