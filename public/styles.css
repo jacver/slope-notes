@@ -1,6 +1,31 @@
 body {
-  padding-top: 50px;
   height: 100%;
+}
+
+header {
+  border-radius: 0.5rem;
+}
+
+.header-container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo img {
+  width: 10%;
+}
+
+.header-text {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 50%;
 }
 
 .page-title-container {
@@ -8,11 +33,11 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* padding: 1%; */
+  margin-top: 0;
 }
 
 a.btn-anchor {
-  /* style <a> to look like a btn */
+  /* style <a> to look like a btn -- needed for add resort*/
   border-radius: 0.25rem;
   border: 1px solid transparent;
   padding: 0.5rem 1rem;
