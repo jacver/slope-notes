@@ -48,6 +48,29 @@ a.btn-anchor {
   margin-top: 6px;
 }
 
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-delete-date {
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.btn-delete-date:hover {
+  background-color: transparent;
+  color: skyblue;
+}
+
 .card-body {
   display: flex;
   flex-direction: row;
@@ -55,13 +78,20 @@ a.btn-anchor {
   padding: 1% 5%;
 }
 
+.card-body-dates {
+  justify-content: center;
+}
+
 .card-body:hover {
   background-color: skyblue;
   border-radius: 5px;
 }
 
+.card-body-dates:hover {
+  background-color: transparent;
+}
+
 .card-titles-container {
-  /* display: flex; */
   flex-direction: column;
 }
 

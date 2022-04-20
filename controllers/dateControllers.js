@@ -3,6 +3,7 @@
 // DEPENDENCIES
 const express = require('express');
 const dateRouter = express.Router();
+const Resort = require('../models/resort');
 const Date = require('../models/date');
 const ejs = require('ejs');
 
@@ -17,11 +18,8 @@ const ejs = require('ejs');
 // });
 
 // // show specific date JSON
-// dateRouter.get("/:id", (req, res) => {
-//   const id = { _id: req.params.id };
-//   Date.findById(id).then((date) => {
-//     res.json(date);
-//   });
+// dateRouter.get('/:strDate', (req, res) => {
+
 // });
 
 // create new resort

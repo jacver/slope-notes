@@ -14,26 +14,28 @@
 
   <div class="card-columns">
     <% dates.forEach(date => { %>
-    <div class="card bg-info">
-      <div class="card-header">DATE</div>
-      <div class="card-body text-center">
-        <div class="card-buttons-container">
-          <a href="resorts/ROUTE">
-            <button title="ViewDate" class="btn btn-primary">View</button>
-          </a>
-
-          <form
-            method="POST"
-            action="resorts/ROUTEHERE?_method=DELETE"
-            class="removeFormMargin"
-          >
+    <div class="card bg-secondary">
+      <div class="card-header">
+        <div>DATE</div>
+        <div>
+          <form method="POST" action="./ROUTEHERE?_method=DELETE">
             <input
-              class="btn btn-secondary"
               type="submit"
+              class="btn-outline-light btn-delete-date"
               title="Delete"
-              value="Delete"
+              value="X"
             />
           </form>
+        </div>
+      </div>
+
+      <div class="card-body card-body-dates text-center">
+        <div class="card-buttons-container">
+          <a href="./<%= query %>/DATE">
+            <button title="View Date" class="btn btn-primary btn-view-date">
+              View
+            </button>
+          </a>
         </div>
       </div>
     </div>
