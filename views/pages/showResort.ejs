@@ -16,7 +16,7 @@
     <% dates.forEach(date => { %>
     <div class="card bg-secondary">
       <div class="card-header">
-        <div>DATE</div>
+        <div><%= date.date.toString().slice(0, 15) %></div>
         <div>
           <form method="POST" action="./ROUTEHERE?_method=DELETE">
             <input

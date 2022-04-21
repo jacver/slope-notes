@@ -18,7 +18,7 @@ const seedResort = require("./resorts.json");
 
 // Resort.deleteMany({})
 //   .then(() => {
-//     return Resort.collection.insertMany(seedResort);
+//     return Resort.insertMany(seedResort);
 //   })
 //   .then(() => {
 //     console.log("resorts seeded");
