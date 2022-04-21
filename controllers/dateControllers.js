@@ -31,49 +31,27 @@ function formatDate(date) {
 //   });
 // });
 
-// // show specific date JSON
+// // show specific dates at a specific resort
 dateRouter.get('/:formattedDate', (req, res) => {
-  const formattedDate = req.params.formattedDate; // get name
-  res.locals.query = formattedDate; // allows use of formattedDate in template. Reference as "query"
+  const formattedDate = req.params.formattedDate;
 
-  SlopeDay.find({}, { date: 1, _id: 0 }) // isolate dates
+  SlopeDay.find({}) // isolate dates
     .then((dateObj) => {
-      // needs to be
-      console.log(dateObj);
+      dateObj.forEach((date, i) => {
+        let dateStr =
+          // MM-DD-YYYY reformatting to string
+          ('0' + (date.date.getMonth() + 1)).slice(-2) +
+          '-' +
+          ('0' + date.date.getDate()).slice(-2) +
+          '-' +
+          date.date.getFullYear();
+        const objWithFormattedDate = dateObj.map((obj) => {
+          return { ...obj, formattedDate: dateStr, isNew: true };
+        });
+        console.log(objWithFormattedDate);
+      });
     });
 });
-
-// create new resort
-//  **IMPORTANT** when creating new resort, pass date as YYYY-MM-DD string and mongoDB will use Date() to create it as a date
-// dateRouter.post("/", (req, res) => {
-//   Date.create(req.body)
-//     .then((newDate) => {
-//       res.json(newDate);
-//     })
-//     .catch((err) => console.log(err));
-// });
-
-// update existing Date by ID
-// dateRouter.put("/:id", (req, res) => {
-//   const id = { _id: req.params.id };
-//   Date.findByIdAndUpdate(id, req.body)
-//     .then((updatedDate) => {
-//       res.json(updatedDate);
-//       // just sending json here so no need to mess with route redirection praise god
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.json(err);
-//     });
-// });
-
-// // delete existing Date by ID
-// dateRouter.delete("/:id", (req, res) => {
-//   const id = { _id: req.params.id };
-//   Date.findByIdAndDelete(id, (err, deletedDate) => {
-//     err ? console.log(err) : console.log("DELETED: ", deletedDate);
-//   });
-// });
 
 // END DATE ROUTE CONTROLLERS *
 
