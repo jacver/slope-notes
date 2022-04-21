@@ -2,7 +2,7 @@
 
 const mongoose = require("../db/connection");
 
-const dateSchema = new mongoose.Schema({
+const slopeDaySchema = new mongoose.Schema({
   resortName: {
     type: String,
     required: true,
@@ -24,6 +24,6 @@ const dateSchema = new mongoose.Schema({
   runNotes: String,
 });
 
-const Dates = mongoose.model("Date", dateSchema);
+const SlopeDay = mongoose.model("SlopeDay", slopeDaySchema);
 
-module.exports = Dates;
+module.exports = SlopeDay;

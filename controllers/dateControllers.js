@@ -1,11 +1,11 @@
 // controllers/dateControllers.js
 
 // DEPENDENCIES
-const express = require('express');
+const express = require("express");
 const dateRouter = express.Router();
-const Resort = require('../models/resort');
-const Date = require('../models/date');
-const ejs = require('ejs');
+const Resort = require("../models/resort");
+const SlopeDay = require("../models/slopeDay");
+const ejs = require("ejs");
 
 // START DATE ROUTE CONTROLLERS *
 // the following routes are prepended with /dates

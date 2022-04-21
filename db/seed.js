@@ -1,16 +1,17 @@
 // db/seed.js
 
-const Dates = require("../models/date");
-const seedDate = require("./dates.json");
+const SlopeDay = require("../models/slopeDay");
+const seedDate = require("./slope-dates.json");
 
-// Dates.deleteMany({})
-//   .then(() => {
-//     return Dates.collection.insertMany(seedDate);
-//   })
-//   .then(() => {
-//     console.log("dates seeded");
-//     process.exit();
-//   });
+SlopeDay.deleteMany({})
+  .then(() => {
+    return SlopeDay.collection.insertMany(seedDate);
+  })
+  .then((data) => {
+    console.log(data);
+    console.log("Slope Dates seeded");
+    process.exit();
+  });
 
 const Resort = require("../models/resort");
 const seedResort = require("./resorts.json");

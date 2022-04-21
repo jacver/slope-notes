@@ -25,7 +25,7 @@
       <h4 class="card-subtitle subtitle mb-2 text-muted"><%= resort.resortState %>, <%= resort.resortCountry %></h4>
     </div>
     <div class="card-buttons-container">
-      <a href="resorts/<%=resort.resortName%>" >
+      <a href="./<%=resort.resortName%>" >
         <button title="View Resort" class="btn btn-primary">
           View
         </button>
@@ -33,7 +33,7 @@
 
       <form
       method="POST"
-      action="resorts/<%=resort.id%>?_method=DELETE"
+      action="./<%=resort.id%>?_method=DELETE"
         class="removeFormMargin"
       >
         <input class="btn btn-secondary" type="submit"  
