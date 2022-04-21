@@ -1,11 +1,25 @@
 // controllers/dateControllers.js
 
 // DEPENDENCIES
-const express = require("express");
+const express = require('express');
 const dateRouter = express.Router();
-const Resort = require("../models/resort");
-const SlopeDay = require("../models/slopeDay");
-const ejs = require("ejs");
+const Resort = require('../models/resort');
+const SlopeDay = require('../models/slopeDay');
+const ejs = require('ejs');
+
+// HELPER FUNCTIONS
+
+function formatDate(date) {
+  // change from UNIX to JS Date OBJ
+  const dateObj = new Date(date);
+  // MM-DD-YYYY
+  dateObj.getMonth() +
+    1 +
+    '-' +
+    dateObj.getDate() +
+    '-' +
+    dateObj.getFullYear();
+}
 
 // START DATE ROUTE CONTROLLERS *
 // the following routes are prepended with /dates
@@ -18,9 +32,16 @@ const ejs = require("ejs");
 // });
 
 // // show specific date JSON
-// dateRouter.get('/:strDate', (req, res) => {
+dateRouter.get('/:formattedDate', (req, res) => {
+  const formattedDate = req.params.formattedDate; // get name
+  res.locals.query = formattedDate; // allows use of formattedDate in template. Reference as "query"
 
-// });
+  SlopeDay.find({}, { date: 1, _id: 0 }) // isolate dates
+    .then((dateObj) => {
+      // needs to be
+      console.log(dateObj);
+    });
+});
 
 // create new resort
 //  **IMPORTANT** when creating new resort, pass date as YYYY-MM-DD string and mongoDB will use Date() to create it as a date

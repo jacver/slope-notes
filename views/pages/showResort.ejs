@@ -16,7 +16,11 @@
     <% dates.forEach(date => { %>
     <div class="card bg-secondary">
       <div class="card-header">
-        <div><%= date.date.toString().slice(0, 15) %></div>
+        <% let formattedDate = ('0' + (date.date.getMonth()+1)).slice(-2) + '-'
+        + ('0' + date.date.getDate()).slice(-2) + '-' + date.date.getFullYear()
+        %>
+
+        <div><%= formattedDate %></div>
         <div>
           <form method="POST" action="./ROUTEHERE?_method=DELETE">
             <input
@@ -31,7 +35,7 @@
 
       <div class="card-body card-body-dates text-center">
         <div class="card-buttons-container">
-          <a href="./<%= query %>/DATE">
+          <a href="/date/<%=formattedDate%>">
             <button title="View Date" class="btn btn-primary btn-view-date">
               View
             </button>

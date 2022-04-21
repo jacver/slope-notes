@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/resorts', resortControllers);
-app.use('/resorts/', dateControllers);
+app.use('/date', dateControllers);
 
 app.set('view engine', 'ejs'); // view engine EJS for templating
 
