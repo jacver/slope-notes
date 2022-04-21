@@ -9,13 +9,13 @@ const slopeDaySchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
   runName: {
     type: String,
     required: true,
   },
-  weatherConditions: String,
+  weatherConditions: { type: String, default: "oh my fucking god" },
   windConditions: String,
   snowConditions: String,
   runTime: Number,

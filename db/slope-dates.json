@@ -1,8 +1,7 @@
 [
   {
     "resortName": "Winter Park",
-    "date": { "$date": "2022-04-15" },
-    "strDate": "2022-04-15",
+    "date": "2022-04-15",
     "runName": "Mary Jane",
     "runDifficulty": "blue",
     "weatherConditions": "cloudy",
@@ -11,15 +10,12 @@
     "runTime": 13,
     "runCrowded": true,
     "runJumps": false,
-    "runNotes": "Crowded run, patches of ice in middle of slope"
+    "runNotes": "This has been updated"
   },
   {
     "resortName": "Winter Park",
-    "date": { "$date": "2022-04-12" },
-    "strDate": "2022-04-12",
     "runName": "Sleeper",
     "runDifficulty": "black",
-    "weatherConditions": "sunny",
     "windConditions": "no wind",
     "snowConditions": "powder",
     "runTime": 19,

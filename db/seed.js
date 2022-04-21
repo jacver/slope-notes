@@ -1,11 +1,11 @@
 // db/seed.js
 
 const SlopeDay = require("../models/slopeDay");
-const seedDate = require("./slope-dates.json");
+const seedData = require("./slope-dates.json");
 
 SlopeDay.deleteMany({})
   .then(() => {
-    return SlopeDay.collection.insertMany(seedDate);
+    return SlopeDay.insertMany(seedData);
   })
   .then((data) => {
     console.log(data);
