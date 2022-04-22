@@ -1,45 +1,18 @@
 // controllers/dateControllers.js
 
 // DEPENDENCIES
-const express = require("express");
+const express = require('express');
 const dateRouter = express.Router();
-const Resort = require("../models/resort");
-const SlopeDay = require("../models/slopeDay");
-const ejs = require("ejs");
-const resortRouter = require("./resortControllers");
-
-// HELPER FUNCTIONS
-
-// function formatDate(date) {
-//   // change from UNIX to JS Date OBJ
-//   const dateObj = new Date(date);
-//   // MM-DD-YYYY
-//   dateObj.getMonth() +
-//     1 +
-//     "-" +
-//     dateObj.getDate() +
-//     "-" +
-//     dateObj.getFullYear();
-// }
+const Resort = require('../models/resort');
+const SlopeDay = require('../models/slopeDay');
+const ejs = require('ejs');
+const resortRouter = require('./resortControllers');
 
 // START DATE ROUTE CONTROLLERS *
 // the following routes are prepended with /dates
 
-// // get all dates JSON
-// dateRouter.get("/", (req, res) => {
-//   Date.find({}).then((dates) => {
-//     res.json(dates);
-//   });
-// });
-
-// // show all same-dates at a specific resort
-// dateRouter.get("/:formattedDate", (req, res) => {
-// eventually URL should read resorts/:resortName/:date
-// // this GET should then display all documents with matching DATE and RESORT NAME on a card
-
-// const formattedDate = req.params.formattedDate;
-
-dateRouter.get("/:formattedDate", (req, res) => {
+// GET all runs at X resort on Y date
+dateRouter.get('/:formattedDate', (req, res) => {
   const formattedDate = req.params.formattedDate;
 
   // break up the date
@@ -59,10 +32,23 @@ dateRouter.get("/:formattedDate", (req, res) => {
       $lt: new Date(upperbound),
     }, // add 2nd query here
   }).then((dateData) => {
-  console.log(dateData)
-  
-  res.render("./pages/showDay", {day: dateData})});
+    console.log(dateData);
+
+    res.render('./pages/showDay', { days: dateData });
+  });
 });
+
+// VIEW one run (all data, not just card)
+// // triggered by EXPAND btn on card
+
+// CREATE new run
+// // triggered by add run button on specific date (Get route above)
+
+// UPDATE/EDIT one run
+// // triggered by EDIT button after expanded
+
+// DELETE one run
+// // triggered by DELETE button after expanded
 
 // END DATE ROUTE CONTROLLERS *
 

@@ -1,15 +1,35 @@
-<head><%- include('../partials/head'); %></head>
-  
+<head>
+  <%- include('../partials/head'); %>
+</head>
 
 <body class="container">
-    <header><%- include('../partials/header'); %></header>
+  <header><%- include('../partials/header'); %></header>
 
+  <% let formattedDate = ('0' + (days[0].date.getMonth()+1)).slice(-2) + '-' +
+  ('0' + days[0].date.getDate()).slice(-2) + '-' + days[0].date.getFullYear() %>
 
-    <h2>showday.ejs</h2>
+  <div class="list-group page-title-container list-group-item active">
+    <h2 class="page-title"><%= days[0].resortName %></h2>
+    <h2 class="page-title"><%= formattedDate %></h2>
+  </div>
 
-    <%= day[0].resortName %>
-    <%= day[0].runName %>
+  <div class="card-columns">
+    <% days.forEach(day=> { %>
+    <div class="card bg-secondary">
+      <div class="card-header day-card-header-container">
+        <div class=""><%=day.runName%></div>
+        <div class=""><%= day.runDifficulty %></div>
+        <div class="card-buttons-container">
+          <a href="/date/">
+            <button title="Expand" class="btn btn-info btn-expand-run">
+              Expand
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
 
-
-    <footer><%- include('../partials/footer'); %></footer>
+  <footer><%- include('../partials/footer'); %></footer>
 </body>
