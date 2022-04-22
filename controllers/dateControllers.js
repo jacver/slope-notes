@@ -58,7 +58,7 @@ dateRouter.get("/:formattedDate", (req, res) => {
       $gte: new Date(lowerbound),
       $lt: new Date(upperbound),
     }, // add 2nd query here
-  }).then((dateData) => res.send(dateData));
+  }).then((dateData) => res.render("./pages/showDay"));
 });
 
 // END DATE ROUTE CONTROLLERS *
