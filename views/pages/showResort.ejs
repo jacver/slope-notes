@@ -12,12 +12,28 @@
     </a>
   </div>
 
+  <% const uniqueValuesSet = new Set() %>
+
+  <% const filteredArr = dates.filter((obj) => { %> 
+  <% const isPresentInSet = uniqueValuesSet.has(obj.date); %>
+  <% uniqueValuesSet.add(obj.date); %>
+  <% return !isPresentInSet %> 
+  <% }); %>
+  
+  <% console.log("ATTEMPT: ", filteredArr)%>
+
   <div class="card-columns">
     <% dates.forEach(date => { %>
     <div class="card bg-secondary">
       <div class="card-header">
+
         <% let formattedDate = ('0' + (date.date.getMonth()+1)).slice(-2) + '-'
-        + ('0' + date.date.getDate()).slice(-2) + '-' + date.date.getFullYear()
+        + 
+        
+        ('0' + date.date.getDate()).slice(-2) 
+        
+        
+        + '-' + date.date.getFullYear()
         %>
 
         <div><%= formattedDate %></div>
