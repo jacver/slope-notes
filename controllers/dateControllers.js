@@ -15,6 +15,7 @@ const resortRouter = require('./resortControllers');
 dateRouter.get('/:formattedDate', (req, res) => {
   const formattedDate = req.params.formattedDate;
 
+  // TODO: refactor below to formattedDate.split("-") which should return an array and each index will be MM, DD, and YYYY :)
   // break up the date
   const targetChars = formattedDate.substring(3, 5);
   const beforeTargetChar = formattedDate.substring(0, 3);
@@ -39,7 +40,7 @@ dateRouter.get('/:formattedDate', (req, res) => {
 });
 
 // VIEW one run (all data, not just card)
-// // triggered by EXPAND btn on card
+
 
 // CREATE new run
 // // triggered by add run button on specific date (Get route above)

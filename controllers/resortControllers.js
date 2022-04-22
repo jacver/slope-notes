@@ -6,7 +6,8 @@ const resortRouter = express.Router();
 const Resort = require('../models/resort');
 const SlopeDay = require('../models/slopeDay');
 
-// FUNCTIONS USED IN ROUTES
+// HELPER FUNCTIONS USED IN ROUTES
+
 
 // START RESORT ROUTE CONTROLLERS *
 
@@ -29,8 +30,23 @@ resortRouter.get('/:resortName', (req, res) => {
 
   SlopeDay.find({ resortName: selectedResort }) // locate runs w/ Dates.resortName that matches req param
     .then((dateData) => {
-      // console.log(dateData); // passes every document in db.dates with a matching resortName
-      res.render('./pages/showResort', { dates: dateData });
+
+      // empty arrays to hold filtered data
+      const filteredDates = []
+      const filteredActualData = []
+
+      // if the date does not exist within the array, push it into the array
+      dateData.forEach((oneDate, i) => {
+        if(!filteredDates.includes(oneDate.date.toString())) {
+          // must use toString(), cannot compare objects
+          filteredDates.push(oneDate.date.toString());
+          filteredActualData.push(oneDate);
+        }
+      })
+ 
+
+      // pass filtered data to prevent duplicate cards
+      res.render('./pages/showResort', { dates: filteredActualData });
     });
 });
 
