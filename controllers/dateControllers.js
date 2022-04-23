@@ -33,7 +33,7 @@ dateRouter.get('/:formattedDate', (req, res) => {
       $lt: new Date(upperbound),
     }, // add 2nd query here
   }).then((dateData) => {
-    console.log(dateData);
+    // console.log(dateData);
 
     res.render('./pages/showDay', { days: dateData });
   });
