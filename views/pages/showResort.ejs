@@ -28,7 +28,7 @@
 
         <div><%= formattedDate %></div>
         <div>
-          <form method="POST" action="./ROUTEHERE?_method=DELETE">
+          <form method="POST" action="/date/<%=date.resortName%>/<%= formattedDate %>?_method=DELETE">
             <input
               type="submit"
               class="btn-outline-light btn-delete-date"

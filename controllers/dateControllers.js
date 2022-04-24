@@ -56,8 +56,16 @@ dateRouter.post('/', (req, res) => {
 // UPDATE/EDIT one run
 // // triggered by EDIT button after expanded
 
-// DELETE one run
-// // triggered by DELETE button after expanded
+// DELETE ENTIRE day and all run data
+
+dateRouter.delete('/:resortName/:formattedDate', (req, res) => {
+  // must compare resortName && formatted date 
+  const resortName = req.params.resortName
+  const formattedDate = req.params.formattedDate;
+
+  // will delete any documents (i.e. runs) that happened at X resort on Y date
+  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(res.redirect('/resorts/'));
+});
 
 // END DATE ROUTE CONTROLLERS *
 
