@@ -9,7 +9,14 @@ const ejs = require('ejs');
 const resortRouter = require('./resortControllers');
 
 // START DATE ROUTE CONTROLLERS *
-// the following routes are prepended with /dates
+
+// the following routes are prepended with /date
+
+// GET HTML form to create new
+dateRouter.get("/new", (req, res) => {
+  res.render('./pages/newDay');
+})
+
 
 // GET all runs at X resort on Y date
 dateRouter.get('/:formattedDate', (req, res) => {
@@ -39,10 +46,12 @@ dateRouter.get('/:formattedDate', (req, res) => {
   });
 });
 
-// VIEW one run (all data, not just card)
 
-// CREATE new run
-// // triggered by add run button on specific date (Get route above)
+// post newly created slope day
+dateRouter.post('/', (req, res) => {
+  SlopeDay.create(req.body).then(res.redirect('/resorts'));
+});
+
 
 // UPDATE/EDIT one run
 // // triggered by EDIT button after expanded

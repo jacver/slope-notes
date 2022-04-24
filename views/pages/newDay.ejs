@@ -1,0 +1,80 @@
+<head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
+  
+    <form action="/date" method="POST">
+      <div class="form-group">
+        <label for="resortName">Resort Name:</label>
+        <input
+          type="text"
+          id="resortName"
+          name="resortName"
+          class="form-control"
+        />
+        <label for="date">Date:</label>
+        <input
+          type="text"
+          id="date"
+          name="date"
+          placeholder="MM-DD-YYYY"
+          class="form-control"
+        />
+        <label for="runName">Run Name:</label>
+        <input
+          type="text"
+          id="runName"
+          name="runName"
+          class="form-control"
+        />
+        <label for="runDifficulty">Run Difficulty:</label>
+        <input
+          type="text"
+          id="runDifficulty"
+          name="runDifficulty"
+          class="form-control"
+        />
+        <label for="weatherConditions">Weather Conditions:</label>
+        <input
+          type="text"
+          id="weatherConditions"
+          name="weatherConditions"
+          class="form-control"
+        />
+        <label for="windConditions">Wind Conditions:</label>
+        <input
+          type="text"
+          id="windConditions"
+          name="windConditions"
+          class="form-control"
+        />
+        <label for="snowConditions">Snow Conditions:</label>
+        <input
+          type="text"
+          id="snowConditions"
+          name="snowConditions"
+          class="form-control"
+        />
+        <label for="runTime">Run Time (in minutes):</label>
+        <input
+
+          type="text"
+          id="runTime"
+          name="runTime"
+          class="form-control"
+        />
+
+        <div class="form-group">
+            <label for="runNotes" class="form-label mt-4">Extra Notes:</label>
+            <textarea class="form-control"  id="runNotes" rows="5" cols="55"></textarea>
+          </div>
+
+      </div>
+      <input type="submit" class="btn btn-primary btn-newResort" />
+      <a href="/resorts" class="btn btn-secondary btn-newResort">Cancel</a>
+    </form>
+  
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+  

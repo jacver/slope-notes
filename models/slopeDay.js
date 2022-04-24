@@ -20,8 +20,6 @@ const slopeDaySchema = new mongoose.Schema({
   windConditions: String,
   snowConditions: String,
   runTime: Number,
-  runCrowded: Boolean,
-  runJumps: Boolean,
   runNotes: String,
 });
 

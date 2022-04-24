@@ -8,8 +8,6 @@
     "windConditions": "windy",
     "snowConditions": "icy",
     "runTime": 13,
-    "runCrowded": true,
-    "runJumps": false,
     "runNotes": "This has been updated"
   },
   {
@@ -20,8 +18,7 @@
     "windConditions": "no wind",
     "snowConditions": "powder",
     "runTime": 19,
-    "runCrowded": false,
-    "runJumps": true,
+
     "runNotes": "Difficult run, moguls at bottom were hard. No lift lines!"
   },
   {
@@ -32,8 +29,7 @@
     "windConditions": "no wind",
     "snowConditions": "powder",
     "runTime": 19,
-    "runCrowded": false,
-    "runJumps": true,
+
     "runNotes": "Difficult run, moguls at bottom were hard. No lift lines!"
   }
 ]

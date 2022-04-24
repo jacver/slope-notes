@@ -11,6 +11,10 @@
   <div class="list-group page-title-container list-group-item active">
     <h2 class="page-title"><%= days[0].resortName %></h2>
     <h2 class="page-title"><%= formattedDate %></h2>
+    <a class="btn-anchor btn-secondary" href="/date/new">
+      <i class="fa-solid fa-plus"></i>
+      Add Run
+    </a>
   </div>
 
   <div class="card-columns">
@@ -47,7 +51,6 @@
         </div>
         <div class="row">
           <div class="col">Snow: <%= day.snowConditions %></div>
-          <div class="col">Crowd: <%= day.runCrowded %></div>
         </div>
         <div class="row">
           <div class="form-group">
