@@ -21,7 +21,8 @@ dateRouter.get("/new", (req, res) => {
 
 
 // GET all runs at X resort on Y date
-dateRouter.get('/:formattedDate', (req, res) => {
+dateRouter.get('/:resortName/:formattedDate', (req, res) => {
+  const resortName = req.params.resortName
   const formattedDate = req.params.formattedDate;
 
   // TODO: refactor below to formattedDate.split("-") which should return an array and each index will be MM, DD, and YYYY :)
@@ -40,7 +41,7 @@ dateRouter.get('/:formattedDate', (req, res) => {
       // find docs with dates between the boundaries (THIS SHOULD EQUAL req.params.formattedDate)
       $gte: new Date(lowerbound),
       $lt: new Date(upperbound),
-    }, // add 2nd query here
+    }, resortName: resortName
   }).then((dateData) => {
     // console.log(dateData);
 
