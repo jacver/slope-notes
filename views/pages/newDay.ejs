@@ -7,12 +7,18 @@
     <form action="/date" method="POST">
       <div class="form-group">
         <label for="resortName">Resort Name:</label>
-        <input
+        <select name="resortName" id="resortName" class="form-control">
+          <% resorts.forEach(resort => { %>
+            <option value="<%= resort.resortName %>"> <%=resort.resortName %></option>
+          <% }) %>
+        </select>
+
+        <!-- <input
           type="text"
           id="resortName"
           name="resortName"
           class="form-control"
-        />
+        /> -->
         <label for="date">Date:</label>
         <input
           type="text"

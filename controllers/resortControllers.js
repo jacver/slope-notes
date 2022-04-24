@@ -20,7 +20,10 @@ resortRouter.get('/', (req, res) => {
 
 // get HTML form to create resort
 resortRouter.get('/new', (req, res) => {
-  res.render('./pages/newResort');
+  Resort.find({}).then((data) => {
+    res.render('./pages/newResort', {resorts: data});
+  })
+
 });
 
 // view specific resort

@@ -19,9 +19,12 @@
 
   <div class="card-columns">
     <% days.forEach((day, i) => { %>
+
+      <% // console.log(day) %>
+
     <div class="card bg-secondary container">
       <div class="row ard-header day-card-header-container">
-        <div class="col"><%=day.runName%></div>
+        <div class="col"><%= day.runName %></div>
         <div class="col"><%= day.runDifficulty %></div>
         <div class="col">
 
@@ -34,16 +37,18 @@
 <div class="modal fade" id="runModal" tabindex="-1" role="dialog" aria-labelledby="runModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
-        <h5 class="modal-title" id="runModalLabel"><%=day.runName%></h5>
+        <h5 class="modal-title" id="runModalLabel"><%= day.runName %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body container">
         <div class="row">
-          <div class="col">Rating: <%= day.runDifficulty%></div>
-          <div class="col">Time: <%= day.runTime %> min</div>
+          <div class="col">Rating: <%= day.runDifficulty %></div>
+          <div class="col">Time (in min): <%= day.runTime %></div>
         </div>
         <div class="row">
           <div class="col">Weather: <%= day.weatherConditions %></div>
@@ -59,6 +64,7 @@
           </div>
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>

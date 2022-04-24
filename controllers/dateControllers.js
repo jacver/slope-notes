@@ -14,7 +14,9 @@ const resortRouter = require('./resortControllers');
 
 // GET HTML form to create new
 dateRouter.get("/new", (req, res) => {
-  res.render('./pages/newDay');
+  Resort.find({}).then((data) => {
+    res.render('./pages/newDay', {resorts: data});
+  })
 })
 
 
