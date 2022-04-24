@@ -13,12 +13,6 @@
           <% }) %>
         </select>
 
-        <!-- <input
-          type="text"
-          id="resortName"
-          name="resortName"
-          class="form-control"
-        /> -->
         <label for="date">Date:</label>
         <input
           type="text"
@@ -27,6 +21,7 @@
           placeholder="MM-DD-YYYY"
           class="form-control"
         />
+
         <label for="runName">Run Name:</label>
         <input
           type="text"
@@ -34,13 +29,26 @@
           name="runName"
           class="form-control"
         />
-        <label for="runDifficulty">Run Difficulty:</label>
+
+        <label id="runDifficulty" for="runDifficulty">Run Difficulty:</label>
+
+        <select name="runDifficulty" id="runDifficulty" class="form-control">
+            <option value="Green">Green</option>
+            <option value="Blue">Blue</option>
+            <option value="Black Diamond">Black Diamond</option>
+            <option value="Double Black Diamond">Double Black Diamond</option>
+        </select>
+
+        <!-- <label for="runDifficulty">Run Difficulty:</label>
         <input
           type="text"
           id="runDifficulty"
           name="runDifficulty"
           class="form-control"
-        />
+        /> -->
+
+
+
         <label for="weatherConditions">Weather Conditions:</label>
         <input
           type="text"
