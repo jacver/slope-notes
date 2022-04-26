@@ -1,7 +1,5 @@
 TO-DO
 
-    -- live to heroku
-
     -Delete specific routes within a date -- ID probably best here
 
     - New edit page linked to in modal -- need ID

@@ -13,8 +13,6 @@ const mongoURI =
     ? process.env.DB_URL
     : process.env.DEV_DB_URL;
 
-// when ready, change the mongo string to process.env.DEV_DB_URL
-
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })
   .then((conn) => {
