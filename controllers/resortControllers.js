@@ -55,7 +55,7 @@ resortRouter.get('/:resortName', (req, res) => {
 
 // post newly created resort
 resortRouter.post('/', (req, res) => {
-  Resort.create(req.body).then(res.redirect('/resorts'));
+  Resort.create(req.body).then(() => res.redirect('/resorts'));
 });
 
 // NOTE: For now not planning on allowing edits on resort obj

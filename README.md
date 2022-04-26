@@ -4,15 +4,13 @@ TO-DO
 
     - New edit page linked to in modal -- need ID
 
+    - Is text area linked to runNotes?
+
     - Form Validation (dates, runTime)
 
     - symbol on runcard for difficulty
 
     - pink card font change to white
-
-    - fix redirect to resorts page so it doesnt need refreshed
-
-    - header on mobile overlap with body
 
     - pagate cards? >5 resorts = new page
 

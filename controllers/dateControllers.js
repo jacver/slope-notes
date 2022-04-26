@@ -20,6 +20,17 @@ dateRouter.get("/new", (req, res) => {
 })
 
 
+// UPDATE/EDIT one run
+// // triggered by EDIT button after expanded
+dateRouter.get("/:id/edit", (req, res) => {
+  const id = req.params.id;
+  SlopeDay.findById(id)
+    .then((day) => {
+      res.render("./pages/editDay", day);
+    })
+});
+
+
 // GET all runs at X resort on Y date
 dateRouter.get('/:resortName/:formattedDate', (req, res) => {
   const resortName = req.params.resortName
@@ -52,12 +63,10 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
 
 // post newly created slope day
 dateRouter.post('/', (req, res) => {
-  SlopeDay.create(req.body).then(res.redirect('/resorts'));
+  SlopeDay.create(req.body).then(() => res.redirect('/resorts'));
 });
 
 
-// UPDATE/EDIT one run
-// // triggered by EDIT button after expanded
 
 // DELETE ALL runs at X resort on Y date
 dateRouter.delete('/:resortName/:formattedDate', (req, res) => {
@@ -65,7 +74,7 @@ dateRouter.delete('/:resortName/:formattedDate', (req, res) => {
   const resortName = req.params.resortName
   const formattedDate = req.params.formattedDate;
 
-  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(res.redirect('/resorts/'));
+  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(() => res.redirect('/resorts/'));
 });
 
 // END DATE ROUTE CONTROLLERS *
