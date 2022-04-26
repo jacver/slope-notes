@@ -11,7 +11,7 @@ mongoose.Promise = Promise;
 const mongoURI =
   process.env.NODE_ENV === "production"
     ? process.env.DB_URL
-    : "mongodb+srv://jacver:atlas@cluster0.gqudg.mongodb.net/slopesnotes?retryWrites=true&w=majority";
+    : process.env.DEV_DB_URL;
 
 // when ready, change the mongo string to process.env.DEV_DB_URL
 
