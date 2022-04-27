@@ -14,11 +14,7 @@ TO-DO
 
     - symbol on runcard for difficulty
 
-    - pink card font change to white
-
     - pagate cards? >5 resorts = new page
-
-    -- if no runs on a resort render something else
 
     -- 404 page render on error
 
