@@ -12,6 +12,7 @@
     <h1>Edit</h1>
 
     <form action="/date/<%=day.id%>/?_method=put" method="POST">
+      
         <div class="form-group">
           <label for="resortName">Resort Name:</label>
           <select 
@@ -21,7 +22,7 @@
                 class="form-control">
             <%resorts.forEach((resort) => {%>
                 <option 
-                  value="<%=resorts%>"
+                  value="<%=resort%>"
                   <%=resort===day.resortName?"selected":""%>
                   > 
                   <%=resort%>

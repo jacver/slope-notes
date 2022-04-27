@@ -16,11 +16,11 @@ SlopeDay.deleteMany({})
 const Resort = require('../models/resort');
 const seedResort = require('./resorts.json');
 
-Resort.deleteMany({})
-  .then(() => {
-    return Resort.insertMany(seedResort);
-  })
-  .then(() => {
-    console.log('resorts seeded');
-    process.exit();
-  });
+// Resort.deleteMany({})
+//   .then(() => {
+//     return Resort.insertMany(seedResort);
+//   })
+//   .then(() => {
+//     console.log('resorts seeded');
+//     process.exit();
+//   });

@@ -90,7 +90,7 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
 // post newly created slope day
 dateRouter.post('/', (req, res) => {
   SlopeDay.create(req.body).then(() => res.redirect('/resorts'));
-  // this is a redirect NOT a render, no need to pass anything??
+  // this is a redirect NOT a render, no need to pass anything?? Want to redirect to show resort route somehow
 });
 
 
