@@ -37,6 +37,7 @@ dateRouter.get("/:id/edit", (req, res) => {
 // PUT HTML form to UPDATE/EDIT one run
 dateRouter.put("/:id", (req, res) => {
   const id = req.params.id
+
   SlopeDay.findOneAndUpdate(
     {_id: id},
     {
@@ -89,8 +90,19 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
 // post newly created slope day
 dateRouter.post('/', (req, res) => {
   SlopeDay.create(req.body).then(() => res.redirect('/resorts'));
+  // this is a redirect NOT a render, no need to pass anything??
 });
 
+
+dateRouter.delete('/:id', (req, res) => {
+  const id = req.params.id
+  SlopeDay.findOneAndDelete({_id: id})
+  .then(() => {
+    res.redirect("/resorts/")
+  })
+
+  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(() => res.redirect('/resorts/'));
+});
 
 
 // DELETE ALL runs at X resort on Y date
