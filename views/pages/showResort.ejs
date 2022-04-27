@@ -13,6 +13,16 @@
   </div>
 
 
+  <%if(dates.length === 0) { %>
+      
+    <div class="alert alert-dismissible alert-secondary" style="margin-top: 3px">
+      <h4 class="alert-heading">Uh oh!</h4>
+      <p class="mb-0"> You haven't added any powder days for <%=query%>. <a href="/date/new" class="alert-link">Click here to add those sweet pow notes!</a>.</p>
+    </div>
+
+    <%}%>
+
+
   <div class="card-columns">
 
     <% dates.forEach(date => { %>

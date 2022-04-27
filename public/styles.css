@@ -45,7 +45,7 @@ a.btn-anchor {
 }
 
 .card-columns {
-  margin-top: 6px;
+  margin-top: 3px;
 }
 
 .card-header {
@@ -113,6 +113,10 @@ a.btn-anchor {
 
 .btn-newResort{
   margin-bottom: 3px;
+}
+
+.alert{
+  margin: 0
 }
 
 .footer-container {
