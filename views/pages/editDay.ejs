@@ -5,7 +5,114 @@
 <body class="container">
     <header><%- include('../partials/header'); %></header>
   
-<h1>Edit</h1>
 
+    <% let formattedDate = ('0' + (day.date.getMonth()+1)).slice(-2) + '-' +
+    ('0' + day.date.getDate()).slice(-2) + '-' + day.date.getFullYear() %>
+
+    <h1>Edit</h1>
+
+    <form action="/date/<%=day.id%>/?_method=put" method="POST">
+        <div class="form-group">
+          <label for="resortName">Resort Name:</label>
+          <select 
+                name="resortName" 
+                value="resortName"
+                id="resortName" 
+                class="form-control">
+            <%resorts.forEach((resort) => {%>
+                <option 
+                  value="<%=resorts%>"
+                  <%=resort===day.resortName?"selected":""%>
+                  > 
+                  <%=resort%>
+                </option>
+              <%})%>
+          </select>
+  
+          <label for="date">Date:</label>
+          <input
+            type="text"
+            id="date"
+            name="date"
+            placeholder="MM-DD-YYYY"
+            class="form-control"
+            value="<%= formattedDate %>""
+          />
+  
+          <label for="runName">Run Name:</label>
+          <input
+            type="text"
+            id="runName"
+            name="runName"
+            class="form-control"
+            value="<%= day.runName %>""
+          />
+  
+          <label id="runDifficulty" for="runDifficulty">Run Difficulty:</label>
+  
+          <select name="runDifficulty" id="runDifficulty" class="form-control">
+              <option value="Green">Green</option>
+              <option value="Blue">Blue</option>
+              <option value="Black Diamond">Black Diamond</option>
+              <option value="Double Black Diamond">Double Black Diamond</option>
+          </select>
+  
+          <label for="weatherConditions">Weather Conditions:</label>
+          <input
+            type="text"
+            id="weatherConditions"
+            name="weatherConditions"
+            class="form-control"
+            value="<%= day.weatherConditions %>""
+          />
+          <label for="windConditions">Wind Conditions:</label>
+          <input
+            type="text"
+            id="windConditions"
+            name="windConditions"
+            class="form-control"
+            value="<%= day.windConditions %>""
+          />
+          <label for="snowConditions">Snow Conditions:</label>
+          <input
+            type="text"
+            id="snowConditions"
+            name="snowConditions"
+            class="form-control"
+            value="<%= day.snowConditions %>""
+          />
+          <label for="runTime">Run Time (in minutes):</label>
+          <input
+            type="number"
+            id="runTime"
+            name="runTime"
+            class="form-control"
+            value="<%= day.runTime %>""
+          />
+  
+          <div class="form-group">
+              <label 
+                for="runNotes" 
+                class="form-label mt-4">
+                    Extra Notes:
+                </label>
+              <textarea 
+                class="form-control" 
+                 name="runNotes" 
+                 id="runNotes" 
+                 rows="5" 
+                 cols="55">
+                </textarea>
+            </div>
+            <input 
+              type="submit" 
+              class="btn btn-primary btn-newResort" />
+              <a 
+                href="/date/<%=day.resortName%>/<%=formattedDate%>" 
+                class="btn btn-secondary btn-newResort">
+                Cancel
+              </a>
+          </form>
+  
     <footer><%- include('../partials/footer'); %></footer>
 </body>

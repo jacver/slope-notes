@@ -1,9 +1,13 @@
 <head>
     <%- include('../partials/head'); %>
-  </head>
+</head>
+
   <body class="container">
     <header><%- include('../partials/header'); %></header>
-  
+
+    <h1>New Day</h1>
+
+   
     <form action="/date" method="POST">
       <div class="form-group">
         <label for="resortName">Resort Name:</label>
@@ -63,7 +67,7 @@
         <label for="runTime">Run Time (in minutes):</label>
         <input
 
-          type="text"
+          type="number"
           id="runTime"
           name="runTime"
           class="form-control"

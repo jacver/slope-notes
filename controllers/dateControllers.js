@@ -20,16 +20,42 @@ dateRouter.get("/new", (req, res) => {
 })
 
 
-// UPDATE/EDIT one run
-// // triggered by EDIT button after expanded
+// GET page to UPDATE/EDIT one run
+// // triggered by EDIT button in showDay modal
 dateRouter.get("/:id/edit", (req, res) => {
   const id = req.params.id;
   SlopeDay.findById(id)
-    .then((day) => {
-      res.render("./pages/editDay", day);
+    .then((dayData) => {
+      Resort.find({}).then((resortDocs) => {
+        const resortNames = resortDocs.map((item) => item.resortName)
+
+        res.render("./pages/editDay", {day: dayData, resorts: resortNames});
+      })
     })
 });
 
+// PUT HTML form to UPDATE/EDIT one run
+dateRouter.put("/:id", (req, res) => {
+  const id = req.params.id
+  SlopeDay.findOneAndUpdate(
+    {_id: id},
+    {
+      resortName: req.body.resortName,
+      date: req.body.date,
+      runName: req.body.runName,
+      runDifficulty: req.body.runDifficulty,
+      weatherConditions: req.body.weatherConditions,
+      windConditions: req.body.windConditions,
+      snowConditions: req.body.snowConditions,
+      runTime: req.body.runtime 
+    },
+    {new: true}
+  ).then((updatedItem) => { () => 
+    // what to pass in here?
+    res.render("./pages/showDay")
+  })
+ 
+})
 
 // GET all runs at X resort on Y date
 dateRouter.get('/:resortName/:formattedDate', (req, res) => {
@@ -54,11 +80,10 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
       $lt: new Date(upperbound),
     }, resortName: resortName
   }).then((dateData) => {
-    // console.log(dateData);
-
     res.render('./pages/showDay', { days: dateData });
   });
 });
+
 
 
 // post newly created slope day

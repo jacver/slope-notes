@@ -111,6 +111,10 @@ a.btn-anchor {
   width: 100%;
 }
 
+.btn-newResort{
+  margin-bottom: 3px;
+}
+
 .footer-container {
   display: flex;
   flex-direction: row;
