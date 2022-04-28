@@ -2,8 +2,6 @@ TO-DO
 
     - Is text area linked to runNotes?
 
-    - Can newDay have a selected dropdown item?
-
     - Form Validation (dates, runTime)
 
     - symbol on runcard for difficulty
