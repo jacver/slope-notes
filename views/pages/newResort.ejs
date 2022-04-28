@@ -4,14 +4,24 @@
 <body class="container">
   <header><%- include('../partials/header'); %></header>
 
+  <p>
+    All fields marked with <i class="fa-solid fa-asterisk required"></i> are
+    required.
+  </p>
+
   <form action="/resorts" method="POST">
     <div class="form-group">
-      <label for="resortName">Resort Name:</label>
+      <label for="resortName"
+        >Resort Name
+        <i class="fa-solid fa-asterisk required" alt="required"></i>:</label
+      >
       <input
         type="text"
         id="resortName"
         name="resortName"
-        class="form-control"
+        class="form-control required"
+        aria-required="true"
+        required
       />
       <label for="resortCity">City:</label>
       <input

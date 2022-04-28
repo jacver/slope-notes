@@ -1,0 +1,7 @@
+/* public/accessibility.css */
+
+.required {
+  color: red;
+  vertical-align: text-top;
+  font-size: 0.75em;
+}
