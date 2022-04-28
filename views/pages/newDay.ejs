@@ -1,88 +1,104 @@
 <head>
-    <%- include('../partials/head'); %>
+  <%- include('../partials/head'); %>
 </head>
 
-  <body class="container">
-    <header><%- include('../partials/header'); %></header>
+<body class="container">
+  <header><%- include('../partials/header'); %></header>
 
-    <h1>New Day</h1>
+  <h1>New Day</h1>
+  <p>
+    All fields marked with
+    <i class="fa-solid fa-asterisk required" alt="required"></i> are required.
+  </p>
 
-   
-    <form action="/date" method="POST">
+  <form action="/date" method="POST">
+    <div class="form-group">
+      <label for="resortName"
+        >Resort Name
+        <i class="fa-solid fa-asterisk required" alt="required"></i>:</label
+      >
+      <select name="resortName" id="resortName" class="form-control">
+        <% resorts.forEach(resort => { %>
+        <option value="<%= resort.resortName %>" aria-required="true" required>
+          <%=resort.resortName %>
+        </option>
+        <% }) %>
+      </select>
+
+      <label for="date"
+        >Date
+        <i class="fa-solid fa-asterisk required" alt="required"></i>:</label
+      >
+      <input
+        type="text"
+        id="date"
+        name="date"
+        placeholder="MM-DD-YYYY"
+        class="form-control"
+        aria-required="true"
+        required
+      />
+
+      <label for="runName"
+        >Run Name
+        <i class="fa-solid fa-asterisk required" alt="required"></i>:</label
+      >
+      <input
+        type="text"
+        id="runName"
+        name="runName"
+        class="form-control"
+        aria-required="true"
+        required
+      />
+
+      <label id="runDifficulty" for="runDifficulty">Run Difficulty:</label>
+
+      <select name="runDifficulty" id="runDifficulty" class="form-control">
+        <option value="Green">Green</option>
+        <option value="Blue">Blue</option>
+        <option value="Black Diamond">Black Diamond</option>
+        <option value="Double Black Diamond">Double Black Diamond</option>
+      </select>
+
+      <label for="weatherConditions">Weather Conditions:</label>
+      <input
+        type="text"
+        id="weatherConditions"
+        name="weatherConditions"
+        class="form-control"
+      />
+      <label for="windConditions">Wind Conditions:</label>
+      <input
+        type="text"
+        id="windConditions"
+        name="windConditions"
+        class="form-control"
+      />
+      <label for="snowConditions">Snow Conditions:</label>
+      <input
+        type="text"
+        id="snowConditions"
+        name="snowConditions"
+        class="form-control"
+      />
+      <label for="runTime">Run Time (in minutes):</label>
+      <input type="number" id="runTime" name="runTime" class="form-control" />
+
       <div class="form-group">
-        <label for="resortName">Resort Name:</label>
-        <select name="resortName" id="resortName" class="form-control">
-          <% resorts.forEach(resort => { %>
-            <option value="<%= resort.resortName %>"> <%=resort.resortName %></option>
-          <% }) %>
-        </select>
-
-        <label for="date">Date:</label>
-        <input
-          type="text"
-          id="date"
-          name="date"
-          placeholder="MM-DD-YYYY"
+        <label for="runNotes" class="form-label mt-4">Extra Notes:</label>
+        <textarea
           class="form-control"
-        />
-
-        <label for="runName">Run Name:</label>
-        <input
-          type="text"
-          id="runName"
-          name="runName"
-          class="form-control"
-        />
-
-        <label id="runDifficulty" for="runDifficulty">Run Difficulty:</label>
-
-        <select name="runDifficulty" id="runDifficulty" class="form-control">
-            <option value="Green">Green</option>
-            <option value="Blue">Blue</option>
-            <option value="Black Diamond">Black Diamond</option>
-            <option value="Double Black Diamond">Double Black Diamond</option>
-        </select>
-
-        <label for="weatherConditions">Weather Conditions:</label>
-        <input
-          type="text"
-          id="weatherConditions"
-          name="weatherConditions"
-          class="form-control"
-        />
-        <label for="windConditions">Wind Conditions:</label>
-        <input
-          type="text"
-          id="windConditions"
-          name="windConditions"
-          class="form-control"
-        />
-        <label for="snowConditions">Snow Conditions:</label>
-        <input
-          type="text"
-          id="snowConditions"
-          name="snowConditions"
-          class="form-control"
-        />
-        <label for="runTime">Run Time (in minutes):</label>
-        <input
-
-          type="number"
-          id="runTime"
-          name="runTime"
-          class="form-control"
-        />
-
-        <div class="form-group">
-            <label for="runNotes" class="form-label mt-4">Extra Notes:</label>
-            <textarea class="form-control"  name="runNotes "id="runNotes" rows="5" cols="55"></textarea>
-          </div>
-
+          name="runNotes "
+          id="runNotes"
+          rows="5"
+          cols="55"
+        ></textarea>
       </div>
-      <input type="submit" class="btn btn-primary btn-newResort" />
-      <a href="/resorts" class="btn btn-secondary btn-newResort">Cancel</a>
-    </form>
-  
-    <footer><%- include('../partials/footer'); %></footer>
-  </body>
-  
+    </div>
+    <input type="submit" class="btn btn-primary btn-newResort" />
+    <a href="/resorts" class="btn btn-secondary btn-newResort">Cancel</a>
+  </form>
+
+  <footer><%- include('../partials/footer'); %></footer>
+</body>

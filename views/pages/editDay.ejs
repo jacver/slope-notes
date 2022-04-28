@@ -9,11 +9,12 @@
     <% let formattedDate = ('0' + (day.date.getMonth()+1)).slice(-2) + '-' + ('0' + day.date.getDate()).slice(-2) + '-' + day.date.getFullYear() %>
 
     <h1>Edit</h1>
+    <p>All fields marked with     <i class="fa-solid fa-asterisk required" alt="required"></i> are required.</p>
 
     <form action="/date/<%=day.id%>/?_method=put" method="POST">
       
         <div class="form-group">
-          <label for="resortName">Resort Name:</label>
+          <label for="resortName">Resort Name    <i class="fa-solid fa-asterisk required" alt="required"></i>:</label>
           <select 
                 name="resortName" 
                 value="resortName"
@@ -22,6 +23,8 @@
             <%resorts.forEach((resort) => {%>
                 <option 
                   value="<%=resort%>"
+                  aria-required="true"
+                  required"
                   <%=resort===day.resortName?"selected":""%>
                   > 
                   <%=resort%>
@@ -29,22 +32,26 @@
               <%})%>
           </select>
   
-          <label for="date">Date:</label>
+          <label for="date">Date <i class="fa-solid fa-asterisk required" alt="required"></i>:</label>
           <input
             type="text"
             id="date"
             name="date"
             class="form-control"
             value="<%=formattedDate%>"
+            aria-required="true"
+            required
           />
   
-          <label for="runName">Run Name:</label>
+          <label for="runName">Run Name     <i class="fa-solid fa-asterisk required" alt="required"></i>:</label>
           <input
             type="text"
             id="runName"
             name="runName"
             class="form-control"
-            value="<%= day.runName %>""
+            value="<%= day.runName %>"
+            aria-required="true"
+            required
           />
   
           <label id="runDifficulty" for="runDifficulty">Run Difficulty:</label>
