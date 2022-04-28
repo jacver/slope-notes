@@ -12,33 +12,38 @@
     </a>
   </div>
 
-
   <%if(dates.length === 0) { %>
-      
-    <div class="alert alert-dismissible alert-secondary" style="margin-top: 3px">
-      <h4 class="alert-heading">Uh oh!</h4>
-      <p class="mb-0"> You haven't added any powder days for <%=query%>. <a href="/date/new" class="alert-link">Click here to add those sweet pow notes!</a>.</p>
-    </div>
 
-    <%}%>
+  <div class="alert alert-dismissible alert-secondary" style="margin-top: 3px">
+    <h4 class="alert-heading">Uh oh!</h4>
+    <p class="mb-0">
+      You haven't added any powder days for <%=query%>.
+      <a href="/date/new" class="alert-link"
+        >Click here to add those sweet pow notes!</a
+      >
+      Or
+      <a href="/resorts/" class="alert-link"
+        >here to return to the home page.</a
+      >
+    </p>
+  </div>
 
+  <%}%>
 
   <div class="card-columns">
-
     <% dates.forEach(date => { %>
     <div class="card bg-secondary">
       <div class="card-header">
-
-        <% let formattedDate = ('0' + (date.date.getMonth()+1)).slice(-2) + 
-        '-'
-        + ('0' + date.date.getDate()).slice(-2) + 
-        '-' 
-        + date.date.getFullYear()
+        <% let formattedDate = ('0' + (date.date.getMonth()+1)).slice(-2) + '-'
+        + ('0' + date.date.getDate()).slice(-2) + '-' + date.date.getFullYear()
         %>
 
         <div style="color: white"><%= formattedDate %></div>
         <div>
-          <form method="POST" action="/date/<%=date.resortName%>/<%= formattedDate %>?_method=DELETE">
+          <form
+            method="POST"
+            action="/date/<%=date.resortName%>/<%= formattedDate %>?_method=DELETE"
+          >
             <input
               type="submit"
               class="btn-outline-light btn-delete-date"
