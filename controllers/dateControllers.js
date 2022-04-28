@@ -58,7 +58,6 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
   const resortName = req.params.resortName
   const formattedDate = req.params.formattedDate;
 
-  // TODO: refactor below to formattedDate.split("-") which should return an array and each index will be MM, DD, and YYYY :)
   // break up the date
   const targetChars = formattedDate.substring(3, 5);
   const beforeTargetChar = formattedDate.substring(0, 3);
