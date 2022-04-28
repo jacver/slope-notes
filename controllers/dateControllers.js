@@ -5,18 +5,15 @@ const express = require('express');
 const dateRouter = express.Router();
 const Resort = require('../models/resort');
 const SlopeDay = require('../models/slopeDay');
-const ejs = require('ejs');
-const resortRouter = require('./resortControllers');
 
 // START DATE ROUTE CONTROLLERS *
-
 // the following routes are prepended with /date
 
 // GET HTML form to create new
 dateRouter.get("/new", (req, res) => {
   Resort.find({}).then((data) => {
     res.render('./pages/newDay', {resorts: data});
-  })
+  }).catch(console.error)
 })
 
 
@@ -34,13 +31,13 @@ dateRouter.get("/:id/edit", (req, res) => {
 
         res.render("./pages/editDay", {day: dayData, resorts: resortNames, formattedDate: newDate});
       })
-    })
+    }).catch(console.error)
 });
 
 // PUT HTML form to UPDATE/EDIT one run
 dateRouter.put("/:id", (req, res) => {
   const id = req.params.id
-
+  // locate document to update
   SlopeDay.findOneAndUpdate(
     {_id: id},
     {
@@ -81,15 +78,14 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
     }, resortName: resortName
   }).then((dateData) => {
     res.render('./pages/showDay', { days: dateData });
-  });
+  }).catch(console.error)
 });
 
 
 
 // post newly created slope day
 dateRouter.post('/', (req, res) => {
-  SlopeDay.create(req.body).then(() => res.redirect('/resorts'));
-  // this is a redirect NOT a render, no need to pass anything?? Want to redirect to show resort route somehow
+  SlopeDay.create(req.body).then(() => res.redirect('/resorts')).catch(console.error)
 });
 
 
@@ -98,8 +94,7 @@ dateRouter.delete('/:id', (req, res) => {
   SlopeDay.findOneAndDelete({_id: id})
   .then(() => {
     res.redirect("/resorts/")
-  })
-
+  }).catch(console.error)
 });
 
 
@@ -109,7 +104,7 @@ dateRouter.delete('/:resortName/:formattedDate', (req, res) => {
   const resortName = req.params.resortName
   const formattedDate = req.params.formattedDate;
 
-  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(() => res.redirect('/resorts/'));
+  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(() => res.redirect('/resorts/')).catch(console.error)
 });
 
 // END DATE ROUTE CONTROLLERS *
