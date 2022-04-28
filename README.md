@@ -1,11 +1,5 @@
 TO-DO
 
-    -Delete specific routes within a date -- ID probably best here
-
-    - When EDITING 
-        -- Page hangs 
-        -- Postman/MongoDB ARE updated. HOWEVER, HTML form adds EVERY resort name as a string: "1,2,3,4..."
-
     - Is text area linked to runNotes?
 
     - Can newDay have a selected dropdown item?

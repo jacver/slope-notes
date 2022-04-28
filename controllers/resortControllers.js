@@ -15,15 +15,14 @@ const SlopeDay = require('../models/slopeDay');
 resortRouter.get('/', (req, res) => {
   Resort.find({}).then((resortData) =>
     res.render('index', { resorts: resortData })
-  );
+  ).catch(console.error)
 });
 
 // get HTML form to create resort
 resortRouter.get('/new', (req, res) => {
   Resort.find({}).then((data) => {
     res.render('./pages/newResort', {resorts: data});
-  })
-
+  }).catch(console.error)
 });
 
 // view specific resort
@@ -33,7 +32,6 @@ resortRouter.get('/:resortName', (req, res) => {
 
   SlopeDay.find({ resortName: selectedResort }) // locate runs w/ Dates.resortName that matches req param
     .then((dateData) => {
-
       // empty arrays to hold filtered data
       const filteredDates = []
       const filteredActualData = []
@@ -46,37 +44,20 @@ resortRouter.get('/:resortName', (req, res) => {
           filteredActualData.push(oneDate);
         }
       })
- 
-
       // pass filtered data to prevent duplicate cards
       res.render('./pages/showResort', { dates: filteredActualData });
-    });
+    }).catch(console.error)
 });
 
 // post newly created resort
 resortRouter.post('/', (req, res) => {
-  Resort.create(req.body).then(() => res.redirect('/resorts'));
+  Resort.create(req.body).then(() => res.redirect('/resorts')).catch(console.error)
 });
-
-// NOTE: For now not planning on allowing edits on resort obj
-// // update existing resort by ID
-// resortRouter.put('/:id', (req, res) => {
-//   const id = { _id: req.params.id };
-//   Resort.findByIdAndUpdate(id, req.body)
-//     .then((updatedResort) => {
-//       res.json(updatedResort);
-//       // just sending json here so no need to mess with route redirection praise god
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.json(err);
-//     });
-// });
 
 // delete existing resort by ID
 resortRouter.delete('/:id', (req, res) => {
   const id = { _id: req.params.id };
-  Resort.findByIdAndDelete(id).then(res.redirect('/resorts'));
+  Resort.findByIdAndDelete(id).then(res.redirect('/resorts')).catch(console.error)
 });
 
 // END RESORT ROUTE CONTROLLERS *
