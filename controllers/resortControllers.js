@@ -6,10 +6,8 @@ const resortRouter = express.Router();
 const Resort = require('../models/resort');
 const SlopeDay = require('../models/slopeDay');
 
-// HELPER FUNCTIONS USED IN ROUTES
-
-
 // START RESORT ROUTE CONTROLLERS *
+// these routes are prepended with /resorts/
 
 // get all resorts
 resortRouter.get('/', (req, res) => {

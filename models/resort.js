@@ -1,4 +1,4 @@
-// /db/resort.js
+// /models/resort.js
 
 const mongoose = require('../db/connection');
 

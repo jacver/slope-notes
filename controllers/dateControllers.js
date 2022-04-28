@@ -16,7 +16,6 @@ dateRouter.get("/new", (req, res) => {
   }).catch(console.error)
 })
 
-
 // GET page to UPDATE/EDIT one run
 // // triggered by EDIT button in showDay modal
 dateRouter.get("/:id/edit", (req, res) => {
@@ -81,13 +80,10 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
   }).catch(console.error)
 });
 
-
-
 // post newly created slope day
 dateRouter.post('/', (req, res) => {
   SlopeDay.create(req.body).then(() => res.redirect('/resorts')).catch(console.error)
 });
-
 
 dateRouter.delete('/:id', (req, res) => {
   const id = req.params.id
@@ -96,7 +92,6 @@ dateRouter.delete('/:id', (req, res) => {
     res.redirect("/resorts/")
   }).catch(console.error)
 });
-
 
 // DELETE ALL runs at X resort on Y date
 dateRouter.delete('/:resortName/:formattedDate', (req, res) => {
