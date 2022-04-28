@@ -28,8 +28,11 @@ dateRouter.get("/:id/edit", (req, res) => {
     .then((dayData) => {
       Resort.find({}).then((resortDocs) => {
         const resortNames = resortDocs.map((item) => item.resortName)
+        
+        // reformats date from Mongo BEFORE it's sent to form 
+        const newDate = ('0' + (dayData.date.getMonth()+1)).slice(-2) + '-' + ('0' + dayData.date.getDate()).slice(-2) + '-' + dayData.date.getFullYear()
 
-        res.render("./pages/editDay", {day: dayData, resorts: resortNames});
+        res.render("./pages/editDay", {day: dayData, resorts: resortNames, formattedDate: newDate});
       })
     })
 });
@@ -51,11 +54,7 @@ dateRouter.put("/:id", (req, res) => {
       runTime: req.body.runtime 
     },
     {new: true}
-  ).then((updatedItem) => { () => 
-    // what to pass in here?
-    res.render("./pages/showDay")
-  })
- 
+  ).then((updatedItem) => res.redirect(`/resorts/${updatedItem.resortName}`))
 })
 
 // GET all runs at X resort on Y date
@@ -101,7 +100,6 @@ dateRouter.delete('/:id', (req, res) => {
     res.redirect("/resorts/")
   })
 
-  SlopeDay.deleteMany({"resortName": resortName, "date": formattedDate }).then(() => res.redirect('/resorts/'));
 });
 
 

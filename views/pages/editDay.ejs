@@ -6,8 +6,7 @@
     <header><%- include('../partials/header'); %></header>
   
 
-    <% let formattedDate = ('0' + (day.date.getMonth()+1)).slice(-2) + '-' +
-    ('0' + day.date.getDate()).slice(-2) + '-' + day.date.getFullYear() %>
+    <% let formattedDate = ('0' + (day.date.getMonth()+1)).slice(-2) + '-' + ('0' + day.date.getDate()).slice(-2) + '-' + day.date.getFullYear() %>
 
     <h1>Edit</h1>
 
@@ -35,9 +34,8 @@
             type="text"
             id="date"
             name="date"
-            placeholder="MM-DD-YYYY"
             class="form-control"
-            value="<%= formattedDate %>""
+            value="<%=formattedDate%>"
           />
   
           <label for="runName">Run Name:</label>
