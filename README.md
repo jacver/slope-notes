@@ -62,7 +62,7 @@ This full CRUD application uses Node.js, Express, Mongoose (& MongoDB), Bootstra
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Major frameworks/libraries used:
 
 * [Node.js](https://nodejs.org/)
 * [Mongoose](https://mongoosejs.com/)
