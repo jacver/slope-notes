@@ -34,13 +34,13 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#usage">Usage</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#project-process">Project Process</a></li>
     <li><a href="#wireframe">Wireframe</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -73,7 +73,12 @@ Major frameworks/libraries used:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- USAGE -->
+## Usage
 
+![Production](https://user-images.githubusercontent.com/92895942/166085152-892f6a16-3ea7-4d96-b7ee-a20683cf1ece.gif)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -117,11 +122,6 @@ To install and set up a local version of this project:
 ![Date Page](https://user-images.githubusercontent.com/92895942/166084599-77e7df60-ff1a-4a54-8dd6-35a4e578f137.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- RELEASE -->
-## Release
-
-![Production](https://user-images.githubusercontent.com/92895942/166085152-892f6a16-3ea7-4d96-b7ee-a20683cf1ece.gif)
 
 
 <!-- ROADMAP -->
