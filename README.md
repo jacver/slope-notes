@@ -125,7 +125,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 - [X] Utilize [Bootswatch](https://bootswatch.com/) on top of Bootstrap
 - [ ] Add GIFs of app usage to ReadMe 
 - [X] Add icon to header title
-- [ ] Optimize mobile styling - particularly in header font-size
+- [X] Optimize mobile styling - particularly in header font-size
 - [ ] Add user support
 
 <p align="right">(<a href="#top">back to top</a>)</p>
