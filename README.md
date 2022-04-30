@@ -42,6 +42,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#project-process">Project Process</a></li>
+    <li><a href="#wireframe">Wireframe</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -119,16 +120,32 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- WIREFRAME -->
+## Wireframe
+
+![Landing Page](https://user-images.githubusercontent.com/92895942/166084567-6acebf94-3dd1-47bb-ac1f-d0c5aa5c4ab1.png)
+![Resort Page](https://user-images.githubusercontent.com/92895942/166084589-71c796a0-f99f-47b5-9abd-2c300a9a9a07.png)
+![Date Page](https://user-images.githubusercontent.com/92895942/166084599-77e7df60-ff1a-4a54-8dd6-35a4e578f137.png)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- RELEASE -->
+## Release
+
+![Production](https://user-images.githubusercontent.com/92895942/166085152-892f6a16-3ea7-4d96-b7ee-a20683cf1ece.gif)
+
+
 <!-- ROADMAP -->
 ## Roadmap
 
 - [X] Utilize [Bootswatch](https://bootswatch.com/) on top of Bootstrap
-- [ ] Add GIFs of app usage to ReadMe 
+- [X] Add GIFs of app usage to ReadMe 
 - [X] Add icon to header title
 - [X] Optimize mobile styling - particularly in header font-size
 - [ ] Add user support
+- [ ] Add API for resort resources (trail maps, etc)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- CONTACT -->
 ## Contact
@@ -138,6 +155,7 @@ Jacob Vernau - [LinkedIn](https://www.linkedin.com/in/jacobvernau/) - jacobverna
 Project Link: [https://github.com/jacver/slope-notes](https://github.com/jacver/slope-notes)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 
@@ -154,3 +172,4 @@ Some helpful resources that were used in the project!
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
