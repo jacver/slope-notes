@@ -89,6 +89,7 @@ dateRouter.post('/', (req, res) => {
   SlopeDay.create(req.body).then(() => res.redirect('/resorts')).catch(console.error)
 });
 
+// DELETE ONE run
 dateRouter.delete('/:id', (req, res) => {
   const id = req.params.id
   SlopeDay.findOneAndDelete({_id: id})
