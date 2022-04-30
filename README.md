@@ -132,6 +132,9 @@ To install and set up a local version of this project:
 - [X] Add icon to header title
 - [X] Optimize mobile styling - particularly in header font-size
 - [ ] Add user support
+- [ ] Custom error page rendering
+- [ ] Sorting/filtering functionality
+- [ ] Pagination as card count scales up
 - [ ] Add API for resort resources (trail maps, etc)
 
 
