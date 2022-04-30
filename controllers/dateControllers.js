@@ -20,14 +20,18 @@ dateRouter.get("/new", (req, res) => {
 // // triggered by EDIT button in showDay modal
 dateRouter.get("/:id/edit", (req, res) => {
   const id = req.params.id;
+  // find specific date to edit
   SlopeDay.findById(id)
     .then((dayData) => {
+      // get resort data 
       Resort.find({}).then((resortDocs) => {
+        // declare resortNames to be passed to html form
         const resortNames = resortDocs.map((item) => item.resortName)
         
         // reformats date from Mongo BEFORE it's sent to form 
         const newDate = ('0' + (dayData.date.getMonth()+1)).slice(-2) + '-' + ('0' + dayData.date.getDate()).slice(-2) + '-' + dayData.date.getFullYear()
 
+        // render edit page with access to specific date, all resort names (for dropdown), and pre-formatted date.
         res.render("./pages/editDay", {day: dayData, resorts: resortNames, formattedDate: newDate});
       })
     }).catch(console.error)
@@ -73,6 +77,7 @@ dateRouter.get('/:resortName/:formattedDate', (req, res) => {
       // find docs with dates between the boundaries (THIS SHOULD EQUAL req.params.formattedDate)
       $gte: new Date(lowerbound),
       $lt: new Date(upperbound),
+      // add 2nd parameter - resortName
     }, resortName: resortName
   }).then((dateData) => {
     res.render('./pages/showDay', { days: dateData });
